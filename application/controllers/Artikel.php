@@ -32,7 +32,7 @@ class Artikel extends CI_Controller
         foreach ($artikel as &$r) {
             $r['kategori'] = $this->kategori->findKategoriArtikelAllByArtikelID($r['id_artikel']);
         }
-        dd($artikel);
+        //dd($artikel);
         $data['public']  = $this->public;
         $data['content'] = 'artikel/index';
         $data['data']    = $artikel;
