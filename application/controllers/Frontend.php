@@ -18,12 +18,7 @@ class Frontend extends CI_Controller
 	}
 	public function index()
 	{
-		$kat = $this->input->get('kategori');
-		if ($kat) {
-			$data['data'] = $this->lahan->findAllByKategori($kat);
-		} else {
-			$data['data'] =  $this->lahan->findAll();
-		}
+
 		$data['public'] = $this->public;
 
 		$this->load->view('frontend/index', $data);
