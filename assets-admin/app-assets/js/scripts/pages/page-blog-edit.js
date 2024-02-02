@@ -7,13 +7,13 @@
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 (function (window, document, $) {
-  'use strict';
+  "use strict";
 
-  var select = $('.select2');
-  var editor = '#blog-editor-container .editor';
-  var blogFeatureImage = $('#blog-feature-image');
-  var blogImageText = document.getElementById('blog-image-text');
-  var blogImageInput = $('#blogCustomFile');
+  var select = $(".select2");
+  var editor = "#blog-editor-container .editor";
+  var blogFeatureImage = $("#blog-feature-image");
+  var blogImageText = document.getElementById("blog-image-text");
+  var blogImageInput = $("#blogCustomFile");
 
   // Basic Select2 select
   select.each(function () {
@@ -23,18 +23,18 @@
       // the following code is used to disable x-scrollbar when click in select input and
       // take 100% width in responsive also
       dropdownAutoWidth: true,
-      width: '100%',
-      dropdownParent: $this.parent()
+      width: "100%",
+      dropdownParent: $this.parent(),
     });
   });
 
   // Snow Editor
 
-  var Font = Quill.import('formats/font');
-  Font.whitelist = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
+  var Font = Quill.import("formats/font");
+  Font.whitelist = ["sofia", "slabo", "roboto", "inconsolata", "ubuntu"];
   Quill.register(Font, true);
 
-  var blogEditor = new Quill(editor, {
+  var quill = new Quill(editor, {
     bounds: editor,
     modules: {
       formula: true,
@@ -42,74 +42,79 @@
       toolbar: [
         [
           {
-            font: []
+            font: [],
           },
           {
-            size: []
-          }
+            size: [],
+          },
         ],
-        ['bold', 'italic', 'underline', 'strike'],
+        ["bold", "italic", "underline", "strike"],
         [
           {
-            color: []
+            color: [],
           },
           {
-            background: []
-          }
-        ],
-        [
-          {
-            script: 'super'
+            background: [],
           },
-          {
-            script: 'sub'
-          }
         ],
         [
           {
-            header: '1'
+            script: "super",
           },
           {
-            header: '2'
+            script: "sub",
           },
-          'blockquote',
-          'code-block'
         ],
         [
           {
-            list: 'ordered'
+            header: "1",
           },
           {
-            list: 'bullet'
+            header: "2",
           },
-          {
-            indent: '-1'
-          },
-          {
-            indent: '+1'
-          }
+          "blockquote",
+          "code-block",
         ],
         [
-          'direction',
           {
-            align: []
-          }
+            list: "ordered",
+          },
+          {
+            list: "bullet",
+          },
+          {
+            indent: "-1",
+          },
+          {
+            indent: "+1",
+          },
         ],
-        ['link', 'image', 'video', 'formula'],
-        ['clean']
-      ]
+        [
+          "direction",
+          {
+            align: [],
+          },
+        ],
+        ["link", "image", "video", "formula"],
+        ["clean"],
+      ],
     },
-    theme: 'snow'
+    theme: "snow",
+  });
+
+  quill.on("text-change", function (delta, oldDelta, source) {
+    // console.log(quill.container.firstChild.innerHTML);
+    $("#editorQuill").val(quill.container.firstChild.innerHTML);
   });
 
   // Change featured image
   if (blogImageInput.length) {
-    $(blogImageInput).on('change', function (e) {
+    $(blogImageInput).on("change", function (e) {
       var reader = new FileReader(),
         files = e.target.files;
       reader.onload = function () {
         if (blogFeatureImage.length) {
-          blogFeatureImage.attr('src', reader.result);
+          blogFeatureImage.attr("src", reader.result);
         }
       };
       reader.readAsDataURL(files[0]);

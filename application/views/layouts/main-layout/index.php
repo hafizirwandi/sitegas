@@ -21,6 +21,12 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/charts/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/extensions/toastr.min.css">
 
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/editors/quill/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/vendors/css/editors/quill/quill.snow.css">
+
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -36,6 +42,10 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/css/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/css/plugins/extensions/ext-component-toastr.css">
+
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/css/plugins/forms/form-quill-editor.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets-admin/') ?>app-assets/css/pages/page-blog.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -96,9 +106,25 @@
                         <i data-feather="home"></i><span class="menu-title text-truncate">Dashboard</span>
                     </a>
                 </li>
-                <li class="<?= ($public['menu'] == 'lahan') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('lahan') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Lahan</span>
+
+                <li class="<?= ($public['menu'] == 'kab-kota') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('kab-kota') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Kabupaten Kota</span>
+                    </a>
+                </li>
+                <li class="<?= ($public['menu'] == 'kategori') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('kategori') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Kategori</span>
+                    </a>
+                </li>
+                <li class="<?= ($public['menu'] == 'tambah-artikel') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('artikel/add') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Tambah Artikel</span>
+                    </a>
+                </li>
+                <li class="<?= ($public['menu'] == 'artikel') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('artikel') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Artikel</span>
                     </a>
                 </li>
                 <li class="<?= ($public['menu'] == 'pengguna') ? 'active' : '' ?> nav-item">
@@ -162,13 +188,18 @@
     <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/charts/apexcharts.min.js"></script>
     <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/extensions/toastr.min.js"></script>
     <!-- END: Page Vendor JS-->
-
+    <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/editors/quill/katex.min.js"></script>
+    <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/editors/quill/highlight.min.js"></script>
+    <script src="<?= base_url('assets-admin/') ?>app-assets/vendors/js/editors/quill/quill.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
     <script src="<?= base_url('assets-admin/') ?>app-assets/js/core/app-menu.js"></script>
     <script src="<?= base_url('assets-admin/') ?>app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
+
+    <script src="<?= base_url('assets-admin/') ?>app-assets/js/scripts/pages/page-blog-edit.js"></script>
 
 
     <script>
