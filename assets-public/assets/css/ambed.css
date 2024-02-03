@@ -25,7 +25,9 @@
   --ambed-white-rgb: 255, 255, 255;
   --ambed-black: #3c3531;
   --ambed-black-rgb: 60, 53, 49;
-  --ambed-base: #a47c68;
+  /* --ambed-base: #a47c68; */
+  --ambed-base: #214c5d; 
+
   --ambed-base-rgb: 164, 124, 104;
   --ambed-primary: #f2eeeb;
   --ambed-primary-rgb: 242, 238, 235;

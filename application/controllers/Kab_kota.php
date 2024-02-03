@@ -61,6 +61,7 @@ class Kab_kota extends CI_Controller
             $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
             $data['logo'] = $upload_data['file_name'];
         }
+        $data['slug'] = url_title($data['nama_kab_kota'], '-', TRUE);
         $this->kabkota->save($data);
         $alert = alert('primary', 'Data berhasil disimpan.');
         $this->session->set_flashdata('message', $alert);

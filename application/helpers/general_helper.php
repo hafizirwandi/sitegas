@@ -70,6 +70,13 @@ function is_sertifikat2($str)
         return "<span class='badge bg-danger'>Tidak Ada</span>";
     }
 }
+function  statusTerbit($str)
+{
+    if ($str == '1') return "Published";
+    if ($str == '2') return "Pending";
+    if ($str == '0') return "Draft";
+    if ($str == '3') return "Rejected";
+}
 
 define(
     'KELURAHAN',

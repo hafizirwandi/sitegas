@@ -1,60 +1,98 @@
-<!-- Blog List -->
-<div class="blog-list-wrapper">
-    <!-- Blog List Items -->
-    <div class="row">
-        <?php foreach ($data as $r) : ?>
-            <div class="col-md-6 col-12">
-                <div class="card" style="height: 550px;">
-                    <a href="page-blog-detail.html">
-                        <?php if ($r['gambar_utama']) : ?>
-                            <img class="card-img-top img-fluid" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="Blog Post pic" />
-                        <?php endif; ?>
-                    </a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="page-blog-detail.html" class="blog-title-truncate text-body-heading"><?= $r['judul'] ?></a>
-                        </h4>
-                        <div class="d-flex">
-                            <div class="avatar me-50">
-                                <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="24" height="24" />
-                            </div>
-                            <div class="author-info">
-                                <small class="text-muted me-25">by</small>
-                                <small><a href="#" class="text-body">Ghani Pradita</a></small>
-                                <span class="text-muted ms-50 me-25">|</span>
-                                <small class="text-muted">Jan 10, 2020</small>
-                            </div>
-                        </div>
-                        <div class="my-1 py-25">
-                            <?php foreach ($r['kategori'] as $j) : ?>
-                                <a href="#">
-                                    <span class="badge rounded-pill badge-light-primary"><?= $j['nama_kategori'] ?></span>
-                                </a>
-                            <?php endforeach; ?>
-
-                        </div>
-                        <p class="card-text blog-content-truncate">
-                            Donut fruitcake soufflé apple pie candy canes jujubes croissant chocolate bar ice cream.
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="page-blog-detail.html#blogComment">
-                                <div class="d-flex align-items-center">
-                                    <i data-feather="message-square" class="font-medium-1 text-body me-50"></i>
-                                    <span class="text-body fw-bold">76 Comments</span>
-                                </div>
-                            </a>
-                            <a href="page-blog-detail.html" class="fw-bold">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-
-
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Artikel</h4>
+        <button type="button" onclick="add()" class="btn btn-primary waves-effect waves-float waves-light"><i data-feather='file-plus'></i> Tambah</button>
     </div>
-    <!--/ Blog List Items -->
+    <div class="card-body">
+
+        <div style="overflow-y: hidden">
+            <table class="table table-striped table-bordered table-hover dt-basic ">
+                <thead>
+                    <tr>
+
+                        <th>Gambar Utama</th>
+                        <th>Judul</th>
+                        <th>Kategori</th>
+                        <th>Publish Date</th>
+                        <th>Created By</th>
+                        <th>Status</th>
+                        <th>Feedback</th>
+                        <th style="width:100px ;">Aksi</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <?php foreach ($data as $r) : ?>
+                        <tr>
+
+                            <td><?php if ($r['gambar_utama']) : ?> <img style="width:200px ;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt=""> <?php endif; ?></td>
+                            <td><?= $r['judul'] ?></td>
+                            <td><?php foreach ($r['kategori'] as $j) : ?>
+                                    <span class="badge badge-light-primary"><?= $j['nama_kategori'] ?></span><br>
+                                <?php endforeach; ?>
+                            </td>
+                            <td><?= $r['published_at'] ?></td>
+                            <td><?= $r['created_by'] ?></td>
+                            <td><?= statusTerbit($r['status']) ?></td>
+                            <td></td>
 
 
+                            <td>
+                                <a href="<?= site_url('artikel/detail/') . $r['id_artikel'] ?>" class="btn btn-sm btn-success btn-icon" title="Lihat">
+                                    <i data-feather='eye'></i>
+                                </a>
+                                <a href="<?= site_url('artikel/edit/') . $r['id_artikel'] ?>" class="btn btn-sm btn-warning btn-icon" title="Edit">
+                                    <i data-feather='edit'></i>
+                                </a>
+                                <form class="d-inline" method="post" action="<?= site_url("artikel/delete") ?>">
+                                    <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
+                                    <input type="hidden" name="id" value="<?= $r['id_artikel'] ?>">
+                                    <button onclick="return confirm('Are you sure?')" class="btn btn-sm btn-secondary btn-icon" title="Hapus">
+                                        <i data-feather='trash'></i>
+                                    </button>
+                                </form>
+
+                            </td>
+
+                        </tr>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<!--/ Blog List -->
+
+<div class="modal fade text-start" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function add() {
+        $('#myModal').modal('show');
+        $('#myModal .modal-header').html('Tambah Artikel');
+        $('#myModal .modal-body').load('<?= site_url('artikel/add') ?>');
+    }
+
+    function edit(id) {
+        $('#myModal').modal('show');
+        $('#myModal .modal-header').html('Edit Artikel');
+        $('#myModal .modal-body').load('<?= site_url('artikel/edit/') ?>' + id);
+    }
+
+    function detail(id) {
+        $('#myModal').modal('show');
+        $('#myModal .modal-header').html('Detail Artikel');
+        $('#myModal .modal-body').load('<?= site_url('artikel/detail/') ?>' + id);
+    }
+</script>

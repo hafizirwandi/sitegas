@@ -14,13 +14,64 @@ class Frontend extends CI_Controller
 		$this->public['menu'] 	= 'home';
 		$this->public['css']	= null;
 		$this->public['script']	= null;
-		$this->load->model('Lahan_model', 'lahan');
+		$this->load->model('Kategori_model', 'kategori');
+		$this->load->model('Kab_kota_model', 'kab_kota');
+		$this->load->model('Artikel_model', 'artikel');
 	}
 	public function index()
+	{
+		$data['public'] = $this->public;
+		$data['content'] = 'frontend/index';
+		$data['kabkota'] = $this->kab_kota->findAll();
+		$data['kabkota1'] = $this->kab_kota->findAllLimit(6);
+		$data['artikel1'] = $this->artikel->findAllWhereLimit([], 4);
+
+		$this->load->view('frontend/layout', $data);
+	}
+	public function article()
+	{
+		$cat = str_replace("'", "", htmlspecialchars($this->input->get('cat'), ENT_QUOTES));
+		$kabkota = str_replace("'", "", htmlspecialchars($this->input->get('kabkota'), ENT_QUOTES));
+		$str_params = [];
+
+		$kat = $this->kategori->findWhere(['slug' => $cat]);
+		if ($kat) {
+
+			$str_params['d.id_kategori'] = $kat['id_kategori'];
+		}
+
+		$kabkota = $this->kab_kota->findWhere(['slug' => $kabkota]);
+		if ($kabkota) {
+			$data['kab'] = $kabkota['id_kk'];
+			$str_params['c.id_kk'] = $kabkota['id_kk'];
+		}
+
+		//dd($str_params);
+		if ($str_params) {
+			$artikel = $this->artikel->findAllArtikel($str_params);
+		} else {
+			$artikel = $this->artikel->findAllArtikel();
+		}
+		//dd($artikel);
+		foreach ($artikel as &$r) {
+			$r['kategori'] = $this->kategori->findKategoriArtikelAllByArtikelID($r['id_artikel']);
+		}
+		$data['public'] = $this->public;
+		$data['artikel'] = $artikel;
+		$data['content'] = 'frontend/artikel';
+		$data['kategori'] = $this->kategori->findAll();
+		$data['kab_kota'] = $this->kab_kota->findAll();
+		$this->load->view('frontend/layout', $data);
+	}
+	public function article_detail($artikel_slug)
 	{
 
 		$data['public'] = $this->public;
 
-		$this->load->view('frontend/index', $data);
+		$data['artikel'] = $artikel;
+		$data['content'] = 'frontend/kategori';
+		$data['kategori'] = $this->kategori->findAll();
+		$data['kab_kota'] = $this->kab_kota->findAll();
+		$this->load->view('frontend/layout', $data);
 	}
 }

@@ -11,7 +11,11 @@ class Artikel_model extends CI_Model
 
     public function find($id)
     {
-        return $this->db->get_where($this->table, [$this->primary_key => $id])->row_array();
+        return $this->db->select('a.*,b.nama as nama_pengguna,c.logo,c.nama_kab_kota')
+            ->join('tb_pengguna b', 'b.id_pengguna=a.created_by', 'left')
+            ->join('tb_kab_kota c', 'c.id_kk=b.id_kk', 'left')
+            ->where('a.id_artikel', $id)
+            ->get($this->table . ' a')->row_array();
     }
 
     public function save($data)
@@ -41,4 +45,33 @@ class Artikel_model extends CI_Model
             ->join('tb_kab_kota c', 'c.id_kk=b.id_kk', 'left')
             ->get($this->table . ' a')->result_array();
     }
+    public function findAllArtikel($str_params = null)
+    {
+
+        $query =  $this->db->select('a.*,b.nama as nama_pengguna,c.logo,c.nama_kab_kota')
+            ->join('tb_pengguna b', 'b.id_pengguna=a.created_by', 'left')
+            ->join('tb_kab_kota c', 'c.id_kk=b.id_kk', 'left')
+            ->join('tb_kategori_artikel d', 'd.id_artikel=a.id_artikel', 'left');
+
+        if ($str_params) {
+            $query->where($str_params);
+        }
+
+        return  $query->get($this->table . ' a')->result_array();
+    }
+    public function findAllWhereLimit($str_params = null, $limit = null)
+    {
+
+        $query =  $this->db->select('a.*,b.nama as nama_pengguna,c.logo,c.nama_kab_kota')
+            ->join('tb_pengguna b', 'b.id_pengguna=a.created_by', 'left')
+            ->join('tb_kab_kota c', 'c.id_kk=b.id_kk', 'left')
+            ->join('tb_kategori_artikel d', 'd.id_artikel=a.id_artikel', 'left');
+
+        if ($str_params) {
+            $query->where($str_params);
+        }
+
+        return  $query->get($this->table . ' a', $limit)->result_array();
+    }
+    
 }

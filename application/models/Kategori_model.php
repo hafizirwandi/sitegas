@@ -13,6 +13,10 @@ class Kategori_model extends CI_Model
     {
         return $this->db->get_where($this->table, [$this->primary_key => $id])->row_array();
     }
+    public function findWhere($array)
+    {
+        return $this->db->get_where($this->table, $array)->row_array();
+    }
 
     public function save($data)
     {
@@ -54,5 +58,9 @@ class Kategori_model extends CI_Model
             ->where('a.id_artikel', $id)
             ->get('tb_kategori_artikel a')
             ->result_array();
+    }
+    public function  deleteKategoriArtikelWhere($array)
+    {
+        return $this->db->where($array)->delete('tb_kategori_artikel');
     }
 }

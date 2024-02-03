@@ -6,12 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="SiTeGas (Sistem Data Legalitas Lahan Hibah dan Wakaf)">
-    <meta name="keywords" content="Lahan wakaf, Lahan hibah, SiTeGas">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="author" content="-">
     <title><?= $public['title'] ?> - SiTeGas</title>
-    <link rel="apple-touch-icon" href="<?= base_url('assets-admin/') ?>app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>favicon.png">
+    <link rel="apple-touch-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -92,7 +92,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item me-auto"><a class="navbar-brand" href="<?= site_url() ?>">
 
-                        <img width="120px" src="<?= base_url('assets/sitegas-removebg.png') ?>" alt="">
+                        <img width="120px" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
 
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -132,21 +132,12 @@
                         <i data-feather='user'></i><span class="menu-title text-truncate">Pengguna</span>
                     </a>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="layout"></i><span class="menu-title text-truncate">Laporan</span></a>
-                    <ul class="menu-content">
-                        <li class="<?= ($public['menu'] == 'laporan-kelurahan') ? 'active' : '' ?>">
-                            <a class="d-flex align-items-center" href="<?= site_url('laporan/kelurahan') ?>">
-                                <i data-feather="circle"></i><span class="menu-item text-truncate">Kelurahan</span>
-                            </a>
-                        </li>
-                        <li class="<?= ($public['menu'] == 'laporan-kategori') ? 'active' : '' ?>">
-                            <a class="d-flex align-items-center" href=" <?= site_url('laporan/kategori') ?>">
-                                <i data-feather="circle"></i><span class="menu-item text-truncate">Kategori</span>
-                            </a>
-                        </li>
-
-                    </ul>
+                <li class=" nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('logout') ?>">
+                        <i data-feather='log-out'></i><span class="menu-title text-truncate">Keluar</span>
+                    </a>
                 </li>
+
             </ul>
         </div>
     </div>

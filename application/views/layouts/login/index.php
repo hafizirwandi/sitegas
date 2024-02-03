@@ -7,12 +7,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>SiTeGas - Sistem Data Legalitas Lahan Hibah dan Wakaf</title>
-    <link rel="apple-touch-icon" href="<?= base_url('assets-admin/') ?>app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets-admin/') ?>app-assets/images/ico/favicon.ico">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>Budaya Sumut</title>
+    <link rel="apple-touch-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -57,7 +57,7 @@
                         <!-- Brand logo--><a class="brand-logo" href="index.html">
 
                             <!-- <h2 class="brand-text text-primary ms-1">SITEGAS</h2> -->
-                            <img style="width:300px;" src="<?= base_url('assets/sitegas-removebg.png') ?>" alt="">
+                            <img style="width:300px;" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
                         </a>
                         <!-- /Brand logo-->
                         <!-- Left Text-->
@@ -69,8 +69,7 @@
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <?= $this->session->flashdata('message'); ?>
-                                <img style="width:300px;" src="<?= base_url('assets/sitegas-removebg.png') ?>" alt="">
-                                <p class="card-text mb-2">Sistem Data Legalitas Lahan Hibah dan Wakaf Kec. Muara Batang Toru</p>
+                                <img style="width:300px;" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
                                 <form class="auth-login-form mt-2" action="<?= site_url('login/auth-login') ?>" method="POST">
                                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                                     <div class="mb-1">

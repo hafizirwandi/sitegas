@@ -8,10 +8,18 @@ class Kab_kota_model extends CI_Model
     {
         return $this->db->get($this->table)->result_array();
     }
-
+    public function findAllLimit($limit)
+    {
+        return $this->db->get($this->table, $limit)->result_array();
+    }
     public function find($id)
     {
         return $this->db->get_where($this->table, [$this->primary_key => $id])->row_array();
+    }
+
+    public function findWhere($where)
+    {
+        return $this->db->get_where($this->table, $where)->row_array();
     }
 
     public function save($data)

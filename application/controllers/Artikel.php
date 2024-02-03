@@ -22,6 +22,7 @@ class Artikel extends CI_Controller
             'hash' => $this->security->get_csrf_hash()
         );
 
+        $this->load->model('Comment_model', 'comment');
         $this->load->model('Artikel_model', 'artikel');
         $this->load->model('Kategori_model', 'kategori');
     }
@@ -49,21 +50,30 @@ class Artikel extends CI_Controller
         $data['csrf']    = $this->csrf;
         $this->load->view('layouts/main-layout/index', $data);
     }
-    public function detail()
+    public function detail($id)
     {
+        $artikel = $this->artikel->find($id);
+        $data['data'] = $artikel;
+        $data['kategori1'] = $this->kategori->findKategoriArtikelAllByArtikelID($artikel['id_artikel']);
+        $data['comment'] = $this->comment->findAllWhere(['a.id_artikel' => $artikel['id_artikel']]);
+
         $data['public']  = $this->public;
         $data['content'] = 'artikel/detail';
-
         $data['csrf']    = $this->csrf;
         $this->load->view('layouts/main-layout/index', $data);
     }
-    public function edit($id = null)
+    public function edit($id)
     {
 
-        $data['csrf']    = $this->csrf;
-        $data['data']    = $this->artikel->find($id);
+        $data['public']  = $this->public;
+        $data['content'] = 'artikel/edit';
+        $data['kategori'] = $this->kategori->findAll();
+        $artikel = $this->artikel->find($id);
+        $data['data'] = $artikel;
+        $data['kategori1'] = $this->kategori->findKategoriArtikelAllByArtikelID($artikel['id_artikel']);
 
-        $this->load->view('artikel/edit', $data);
+        $data['csrf']    = $this->csrf;
+        $this->load->view('layouts/main-layout/index', $data);
     }
 
     public function save()
@@ -86,6 +96,12 @@ class Artikel extends CI_Controller
 
         unset($data['id_kategori']);
         $id =   $this->artikel->save($data);
+        if ($data['id_artikel']) {
+            $id = $data['id_artikel'];
+        }
+
+        $this->kategori->deleteKategoriArtikelWhere(['id_artikel' => $id]);
+
         foreach ($this->input->post('id_kategori') as $r) {
             $array = array(
                 'id_artikel' => $id,
@@ -104,6 +120,15 @@ class Artikel extends CI_Controller
         $id = $this->input->post('id');
         $this->artikel->delete($id);
         $alert = alert('primary', 'Data berhasil dihapus.');
+        $this->session->set_flashdata('message', $alert);
+        redirect($this->agent->referrer());
+    }
+    public function save_comment()
+    {
+        $data = $this->input->post();
+        // dd($data);
+        $this->comment->save($data);
+        $alert = alert('primary', 'Data berhasil disimpan.');
         $this->session->set_flashdata('message', $alert);
         redirect($this->agent->referrer());
     }
