@@ -16,15 +16,16 @@ class Home extends CI_Controller
 		$this->public['submenu'] = null;
 		$this->public['css']	= null;
 		$this->public['script']	= null;
-		$this->load->model('Lahan_model', 'lahan');
+		$this->load->model('Kategori_model', 'kategori');
+		$this->load->model('Artikel_model', 'artikel');
 	}
 	public function index()
 	{
 		$this->public['script'] = 'home/script';
 		$data['public'] = $this->public;
 		$data['content'] = 'home/index';
-		$data['count'] = $this->lahan->countAll();
-		$data['countada'] = $this->lahan->countAllByStatusSertifikatAda();
+		$kategori = $this->kategori->findAll();
+		// $data['kategori'] =
 		//dd($data['countada']);
 		$this->load->view('layouts/main-layout/index', $data);
 	}

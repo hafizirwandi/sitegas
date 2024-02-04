@@ -33,7 +33,7 @@
                                 <?php endforeach; ?>
                             </td>
                             <td><?= $r['published_at'] ?></td>
-                            <td><?= $r['created_by'] ?></td>
+                            <td><?= $r['nama_pengguna'] ?></td>
                             <td><?= statusTerbit($r['status']) ?></td>
                             <td></td>
 

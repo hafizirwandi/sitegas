@@ -107,16 +107,18 @@
                     </a>
                 </li>
 
-                <li class="<?= ($public['menu'] == 'kab-kota') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('kab-kota') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Kabupaten Kota</span>
-                    </a>
-                </li>
-                <li class="<?= ($public['menu'] == 'kategori') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('kategori') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Kategori</span>
-                    </a>
-                </li>
+                <?php if ($this->session->userdata('level_login') == '1') : ?>
+                    <li class="<?= ($public['menu'] == 'kab-kota') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('kab-kota') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Kabupaten Kota</span>
+                        </a>
+                    </li>
+                    <li class="<?= ($public['menu'] == 'kategori') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('kategori') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Kategori</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li class="<?= ($public['menu'] == 'tambah-artikel') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('artikel/add') ?>">
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Tambah Artikel</span>

@@ -23,6 +23,7 @@ class Pengguna extends CI_Controller
       'hash' => $this->security->get_csrf_hash()
     );
     $this->load->model('Pengguna_model', 'pengguna');
+    $this->load->model('Kab_kota_model', 'kabkota');
   }
 
   public function index()
@@ -38,6 +39,7 @@ class Pengguna extends CI_Controller
   {
     $data['csrf'] = $this->csrf;
     $data['public'] = $this->public;
+    $data['kabkota'] = $this->kabkota->findAll();
     $this->load->view('pengguna/add', $data);
   }
 
@@ -46,6 +48,7 @@ class Pengguna extends CI_Controller
     $data['csrf'] = $this->csrf;
     $data['data'] = $this->pengguna->find($id);
     $data['public'] = $this->public;
+    $data['kabkota'] = $this->kabkota->findAll();
 
     $this->load->view('pengguna/edit', $data);
   }
@@ -77,6 +80,7 @@ class Pengguna extends CI_Controller
     $data = [
       'id_pengguna' => $post['id_pengguna'],
       'username' => $post['username'],
+      'id_kk' => $post['id_kk'],
       'password' => $password,
       'nama' => $post['nama'],
       'level_login' => $post['level_login'],
@@ -120,5 +124,21 @@ class Pengguna extends CI_Controller
 
     $this->session->set_flashdata('message', $alert);
     redirect($this->agent->referrer());
+  }
+  public function generate_akun()
+  {
+    $kabkota = $this->kabkota->findAll();
+    foreach ($kabkota as $r) {
+      $data =  array(
+        'id_pengguna' => '',
+        'id_kk' => $r['id_kk'],
+        'username' => $r['slug'],
+        'password' => md5('123'),
+        'nama' => $r['nama_kab_kota'],
+        'level_login' => '2',
+      );
+      $this->pengguna->save($data);
+    }
+    echo "done";
   }
 }

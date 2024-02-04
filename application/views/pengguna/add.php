@@ -14,6 +14,17 @@
                     <label class="required">Role</label>
                     <select class="form-control" name="level_login" placeholder="Enter Text" required>
                         <option value="1">Admin</option>
+                        <option value="2">Author</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="required">Kab Kota</label>
+                    <select class="form-control" name="id_kk" placeholder="Enter Text" required>
+                        <?php foreach ($kabkota as $r) : ?>
+                            <option value="<?= $r['id_kk'] ?>"><?= $r['nama_kab_kota'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>

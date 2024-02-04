@@ -21,7 +21,7 @@
                         <tr>
                             <td><?= $r['nama'] ?></td>
                             <td><?= $r['username']     ?></td>
-                            <td>Admin</td>
+                            <td><?= $r['level_login'] == '1' ? 'Super Admin' : 'Author'; ?></td>
                             <td><a href="javascript:;" onclick="edit(`<?= $r['id_pengguna'] ?>`)" class="btn btn-sm btn-warning btn-icon" title="Edit">
                                     <i data-feather='edit'></i>
                                 </a>
