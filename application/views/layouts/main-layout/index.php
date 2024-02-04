@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="-">
-    <title><?= $public['title'] ?> - SiTeGas</title>
+    <title><?= $public['title'] ?> - Budaya Sumut</title>
     <link rel="apple-touch-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/favicon-sumutprov.png') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -119,11 +119,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <li class="<?= ($public['menu'] == 'tambah-artikel') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('artikel/add') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Tambah Artikel</span>
-                    </a>
-                </li>
+
                 <li class="<?= ($public['menu'] == 'artikel') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('artikel') ?>">
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Artikel</span>

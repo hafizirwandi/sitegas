@@ -51,7 +51,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'frontend';
 $route['article'] = 'frontend/article';
-$route['article-detail'] = 'frontend/article_detail';
+$route['article-detail/(:any)'] = 'frontend/article_detail/$1';
+$route['kabupaten-kota'] = 'frontend/kabupaten_kota';
 
 
 $route['404_override'] = '';

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title><?= $public['title'] ?> - Budaya Sumut</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('assets/favicon-sumutprov.png') ?>" />
     <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('assets/favicon-sumutprov.png') ?>" />
@@ -56,8 +56,8 @@
 
 <body class="custom-cursor">
 
-    <!-- <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div> -->
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
 
     <!-- style switcher -->
     <!-- <div class="style-switcher">
@@ -104,24 +104,7 @@
             <div class="mobile-nav__container"></div>
             <!-- /.mobile-nav__container -->
 
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@ambed.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
+
 
 
 

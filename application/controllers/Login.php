@@ -49,6 +49,7 @@ class Login extends CI_Controller
         'role' => $user['level_login'],
         'gambar' => $user['gambar'],
         'no_hp' => $user['no_hp'],
+        'id_kk' => $user['id_kk'],
         'email' => $user['email'],
         'islogin' => TRUE,
       ];

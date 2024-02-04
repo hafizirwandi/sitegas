@@ -39,12 +39,16 @@ class Frontend extends CI_Controller
 
 			$str_params['d.id_kategori'] = $kat['id_kategori'];
 		}
+		$data['kabkota'] = [];
 
 		$kabkota = $this->kab_kota->findWhere(['slug' => $kabkota]);
 		if ($kabkota) {
-			$data['kab'] = $kabkota['id_kk'];
+
+			$data['kabkota'] = $kabkota;
 			$str_params['c.id_kk'] = $kabkota['id_kk'];
 		}
+
+		$data['latest_post'] = $this->artikel->findAllLatest();
 
 		//dd($str_params);
 		if ($str_params) {
@@ -56,6 +60,7 @@ class Frontend extends CI_Controller
 		foreach ($artikel as &$r) {
 			$r['kategori'] = $this->kategori->findKategoriArtikelAllByArtikelID($r['id_artikel']);
 		}
+		$this->public['title'] = 'Artikel';
 		$data['public'] = $this->public;
 		$data['artikel'] = $artikel;
 		$data['content'] = 'frontend/artikel';
@@ -67,11 +72,22 @@ class Frontend extends CI_Controller
 	{
 
 		$data['public'] = $this->public;
-
+		$data['latest_post'] = $this->artikel->findAllLatest();
+		$artikel = $this->artikel->findWhere(['a.slug' => $artikel_slug]);
+		// dd($artikel);
 		$data['artikel'] = $artikel;
-		$data['content'] = 'frontend/kategori';
+		$data['content'] = 'frontend/artikel_detail';
 		$data['kategori'] = $this->kategori->findAll();
 		$data['kab_kota'] = $this->kab_kota->findAll();
+
+		$this->load->view('frontend/layout', $data);
+	}
+	public function kabupaten_kota()
+	{
+		$this->public['title'] = 'Kabupaten Kota';
+		$data['public'] = $this->public;
+		$data['content'] = 'frontend/kabupaten_kota';
+		$data['kabkota'] = $this->kab_kota->findAll();
 		$this->load->view('frontend/layout', $data);
 	}
 }

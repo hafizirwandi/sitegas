@@ -11,22 +11,32 @@
                          <input type="hidden" name="gambar_utama" value="<?= $data['gambar_utama'] ?>" />
                          <input type="hidden" name="id_artikel" value="<?= $data['id_artikel'] ?>" />
                          <div class="row">
-                             <div class="col-12">
+                             <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-title">Title</label>
-                                     <input type="text" name="judul" value="<?= $data['judul'] ?>" class="form-control" />
+                                     <input type="text" name="judul" value="<?= $data['judul'] ?>" class="form-control" required />
+                                 </div>
+                             </div>
+                             <div class="col-md-6 col-12">
+                                 <div class="mb-2">
+                                     <label class="form-label" for="blog-edit-status">Kab Kota</label>
+                                     <select class="form-select" name="id_kk" id="blog-edit-status" required>
+                                         <?php foreach ($kabkota as $r) : ?>
+                                             <option value="<?= $r['id_kk'] ?>" <?= $r['id_kk'] == $data['id_kk'] ? 'selected' : '' ?>><?= $r['nama_kab_kota'] ?></option>
+                                         <?php endforeach; ?>
+                                     </select>
                                  </div>
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-category">Published Time</label>
-                                     <input type="datetime-local" name="published_at" value="<?= $data['published_at'] ?>" class="form-control" />
+                                     <input type="datetime-local" name="published_at" value="<?= $data['published_at'] ?>" class="form-control" required />
                                  </div>
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-category">Category</label>
-                                     <select id="blog-edit-category" class="select2 form-select" name="id_kategori[]" multiple>
+                                     <select id="blog-edit-category" class="select2 form-select" name="id_kategori[]" multiple required>
                                          <?php foreach ($kategori as $r) : ?>
 
                                              <option value="<?= $r['id_kategori'] ?>" <?php foreach ($kategori1 as $j) : ?> <?= $r['id_kategori'] == $j['id_kategori'] ? 'selected' : '' ?> <?php endforeach; ?>>
@@ -39,13 +49,14 @@
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-slug">Slug</label>
                                      <input type="text" id="blog-edit-slug" name="slug" value="<?= $data['slug'] ?>" class="form-control" />
+                                     <small class="text-danger">Kosongkan jika tidak ingin di kustom</small>
                                  </div>
-                                 <span class="text-danger">NB : Kosongkan bila ingin generate by sistem</span>
+
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-status">Status</label>
-                                     <select class="form-select" name="status" id="blog-edit-status">
+                                     <select class="form-select" name="status" id="blog-edit-status" required>
                                          <option value="1">Published</option>
                                          <option value="2">Pending</option>
                                          <option value="0">Draft</option>

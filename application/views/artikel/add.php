@@ -14,13 +14,29 @@
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-title">Title</label>
-                                     <input type="text" name="judul" id="blog-edit-title" class="form-control" />
+                                     <input type="text" name="judul" id="blog-edit-title" class="form-control" required />
+                                 </div>
+                             </div>
+                             <div class="col-md-6 col-12">
+                                 <div class="mb-2">
+                                     <label class="form-label" for="blog-edit-status">Kab Kota</label>
+                                     <select class="form-select" name="id_kk" id="blog-edit-status" required>
+                                         <?php foreach ($kabkota as $r) : ?>
+                                             <option value="<?= $r['id_kk'] ?>"><?= $r['nama_kab_kota'] ?></option>
+                                         <?php endforeach; ?>
+                                     </select>
+                                 </div>
+                             </div>
+                             <div class="col-md-6 col-12">
+                                 <div class="mb-2">
+                                     <label class="form-label" for="blog-edit-category">Published Time</label>
+                                     <input type="datetime-local" name="published_at" class="form-control" required />
                                  </div>
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-category">Category</label>
-                                     <select id="blog-edit-category" class="select2 form-select" name="id_kategori[]" multiple>
+                                     <select id="blog-edit-category" class="select2 form-select" name="id_kategori[]" multiple required>
                                          <?php foreach ($kategori as $r) : ?>
                                              <option value="<?= $r['id_kategori'] ?>"><?= $r['nama_kategori'] ?></option>
                                          <?php endforeach; ?>
@@ -31,12 +47,13 @@
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-slug">Slug</label>
                                      <input type="text" id="blog-edit-slug" name="slug" class="form-control" />
+                                     <small class="text-danger">Kosongkan jika tidak ingin di kustom</small>
                                  </div>
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
                                      <label class="form-label" for="blog-edit-status">Status</label>
-                                     <select class="form-select" name="status" id="blog-edit-status">
+                                     <select class="form-select" name="status" id="blog-edit-status" required>
                                          <option value="1">Published</option>
                                          <option value="2">Pending</option>
                                          <option value="0">Draft</option>

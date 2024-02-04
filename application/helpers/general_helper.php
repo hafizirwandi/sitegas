@@ -78,6 +78,14 @@ function  statusTerbit($str)
     if ($str == '3') return "Rejected";
 }
 
+function createReadMore($text, $maxLength = 250, $suffix = '...')
+{
+
+    // Memotong teks dan menambahkan suffix
+    return  $trimmedText = substr($text, 0, $maxLength) . $suffix;
+}
+
+
 define(
     'KELURAHAN',
     array(

@@ -24,8 +24,9 @@ class Home extends CI_Controller
 		$this->public['script'] = 'home/script';
 		$data['public'] = $this->public;
 		$data['content'] = 'home/index';
-		$kategori = $this->kategori->findAll();
-		// $data['kategori'] =
+		$kategori = $this->kategori->getDashboardByPenggunaID($this->session->userdata('id_pengguna'));
+		//dd($kategori);
+		$data['kategori'] = $kategori;
 		//dd($data['countada']);
 		$this->load->view('layouts/main-layout/index', $data);
 	}

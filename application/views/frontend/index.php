@@ -23,15 +23,11 @@
                      <div class="row">
                          <div class="col-xl-12">
                              <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Welcome to Interior Wallapering &
-                                     Painting</p>
-                                 <h2 class="main-slider-three__title">best quality <br> of wallpaper <br> for
-                                     <span>home.</span>
+                                 <p class="main-slider-three__sub-title">Selamat datang di Sumatera Utara</p>
+                                 <h2 class="main-slider-three__title">Ayo Mengenal <br> Lebih Dekat <br>
+                                     Adat Istiadat Sumut
                                  </h2>
-                                 <div class="main-slider-three__btn-box">
-                                     <a href="about.html" class="main-slider-three__btn thm-btn">Discover
-                                         More</a>
-                                 </div>
+
                              </div>
                          </div>
                      </div>
@@ -44,15 +40,10 @@
                      <div class="row">
                          <div class="col-xl-12">
                              <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Welcome to Interior Wallapering &
-                                     Painting</p>
-                                 <h2 class="main-slider-three__title">best quality <br> of wallpaper <br> for
-                                     <span>home.</span>
+                                 <p class="main-slider-three__sub-title">Budaya Sumut</p>
+                                 <h2 class="main-slider-three__title">Lestarikan <br> Budaya Bangsa <br> Indonesia
                                  </h2>
-                                 <div class="main-slider-three__btn-box">
-                                     <a href="about.html" class="main-slider-three__btn thm-btn">Discover
-                                         More</a>
-                                 </div>
+
                              </div>
                          </div>
                      </div>
@@ -65,15 +56,10 @@
                      <div class="row">
                          <div class="col-xl-12">
                              <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Welcome to Interior Wallapering &
-                                     Painting</p>
-                                 <h2 class="main-slider-three__title">best quality <br> of wallpaper <br> for
-                                     <span>home.</span>
+                                 <p class="main-slider-three__sub-title">Budaya Sumut</p>
+                                 <h2 class="main-slider-three__title">Belajar Budaya<br> Bukan <br> Jadul
                                  </h2>
-                                 <div class="main-slider-three__btn-box">
-                                     <a href="about.html" class="main-slider-three__btn thm-btn">Discover
-                                         More</a>
-                                 </div>
+
                              </div>
                          </div>
                      </div>
@@ -154,70 +140,75 @@
              <h2 class="section-title__title">Warisan Budaya</h2>
              <div class="section-title__line"></div>
          </div>
-         <div class="project-one__inner">
-             <div class="project-one__main-content">
-                 <div class="swiper-container" id="project-one__carousel">
-                     <div class="swiper-wrapper">
-                         <?php foreach ($artikel1 as $r) : ?>
-                             <div class="swiper-slide">
-                                 <div class="row">
-                                     <div class="col-xl-6 col-lg-6">
-                                         <div class="project-one__left">
-                                             <div class="project-one__img">
-                                                 <img width="870px" height="612px" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-xl-6 col-lg-6">
-                                         <div class="project-one__right">
-                                             <div class="project-one__content-box">
-                                                 <div class="project-one-shape-1 float-bob-y">
-                                                     <img src="<?= base_url('assets-public/assets/images/shapes/project-one-shape-1.png')  ?>" alt="">
-                                                 </div>
-                                                 <div class="project-one__content">
-                                                     <h4 class="project-one__title"><?= $r['judul'] ?></h4>
-                                                     <p class="project-one__text"><?= $r['artikel'] ?></p>
-                                                     <a href="<?= site_url('article-detail/') . $r['slug'] ?>" class="thm-btn project-one__btn">Read More</a>
+         <div class="row justify-content-center">
+             <div class="col-xl-10">
+                 <div class="project-one__inner">
+                     <div class="project-one__main-content">
+                         <div class="swiper-container" id="project-one__carousel">
+                             <div class="swiper-wrapper">
+                                 <?php foreach ($artikel1 as $r) : ?>
+                                     <div class="swiper-slide">
+                                         <div class="row">
+                                             <div class="col-xl-6 col-lg-6">
+                                                 <div class="project-one__left">
+                                                     <div class="project-one__img">
+                                                         <img width="870px" height="612px" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
+                                                     </div>
                                                  </div>
                                              </div>
+                                             <div class="col-xl-6 col-lg-6">
+                                                 <div class="project-one__right">
+                                                     <div class="project-one__content-box">
+                                                         <div class="project-one-shape-1 float-bob-y">
+                                                             <img src="<?= base_url('assets-public/assets/images/shapes/project-one-shape-1.png')  ?>" alt="">
+                                                         </div>
+                                                         <div class="project-one__content">
+                                                             <h4 class="project-one__title"><?= $r['judul'] ?></h4>
+                                                             <p class="project-one__text"><?= createReadMore($r['artikel']) ?></p>
+                                                             <a href="<?= site_url('article-detail/') . $r['slug'] ?>" class="thm-btn project-one__btn">Read More</a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
                                          </div>
-                                     </div>
-                                 </div>
-                             </div><!-- /.swiper-slide -->
-                         <?php endforeach; ?>
+                                     </div><!-- /.swiper-slide -->
+                                 <?php endforeach; ?>
 
+                             </div>
+                         </div>
                      </div>
-                 </div>
-             </div>
 
-             <div class="project-one__thumb-box">
-                 <div class="swiper-container" id="project-one__thumb">
-                     <div class="swiper-wrapper">
-                         <?php foreach ($artikel1 as $r) : ?>
-                             <div class="swiper-slide">
-                                 <div class="project-one__img-holder">
-                                     <img style="width: 100%;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
-                                 </div>
-                             </div><!-- /.swiper-slide -->
-                         <?php endforeach; ?>
+                     <div class="project-one__thumb-box">
+                         <div class="swiper-container" id="project-one__thumb">
+                             <div class="swiper-wrapper">
+                                 <?php foreach ($artikel1 as $r) : ?>
+                                     <div class="swiper-slide">
+                                         <div class="project-one__img-holder">
+                                             <img style="width: 100%;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
+                                         </div>
+                                     </div><!-- /.swiper-slide -->
+                                 <?php endforeach; ?>
 
-                     </div>
-                 </div>
-                 <div class="project-one__nav">
-                     <div class="swiper-button-prev" id="project-one__swiper-button-next">
-                         <i class="fa fa-angle-right angle-left"></i>
-                     </div>
-                     <div class="swiper-button-next" id="project-one__swiper-button-prev">
-                         <i class="fa fa-angle-right"></i>
+                             </div>
+                         </div>
+                         <div class="project-one__nav">
+                             <div class="swiper-button-prev" id="project-one__swiper-button-next">
+                                 <i class="fa fa-angle-right angle-left"></i>
+                             </div>
+                             <div class="swiper-button-next" id="project-one__swiper-button-prev">
+                                 <i class="fa fa-angle-right"></i>
+                             </div>
+                         </div>
                      </div>
                  </div>
              </div>
          </div>
+
          <div class="row">
              <div class="col-xl-12">
                  <div class="project-one__more-project">
                      <div class="project-one__more-project-content">
-                         <a href="<?= site_url('article?cat=adat-istiadat') ?>">View more</a>
+                         <a href="<?= site_url('article') ?>">View more</a>
                      </div>
                  </div>
              </div>
@@ -280,7 +271,7 @@
                                  <div class="team-one__title-shape">
                                      <img src="<?= base_url('assets-public/') ?>assets/images/shapes/team-one-title-box-shape.png" alt="">
                                      <div class="team-one__title-text">
-                                         <span class="team-one__title" style="font-size: 7pt !important;">Kab. Asahan</span>
+                                         <a href="<?= site_url('article?kabkota=') . $r['slug'] ?>"><span class="team-one__title" style="font-size: 7pt !important;"><?= $r['nama_kab_kota'] ?></span></a>
                                      </div>
                                  </div>
                              </div>
@@ -290,9 +281,20 @@
                  </div>
              <?php endforeach; ?>
 
+
          </div>
 
      </div>
+     <div class="row">
+         <div class="col-xl-12">
+             <div class="project-one__more-project">
+                 <div class="project-one__more-project-content">
+                     <a href="<?= site_url('kabupaten-kota') ?>">View more</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+
  </section>
  <!--Team Page End-->
 
@@ -302,19 +304,20 @@
          <div class="testimonial-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url(assets/images/backgrounds/testimonial-one-bg.jpg);"></div>
      </div>
      <div class="container">
+
          <div class="row">
              <div class="col-xl-3">
                  <div class="testimonial-one__left">
                      <div class="section-title text-left">
-                         <span class="section-title__tagline">testimonials</span>
-                         <h2 class="section-title__title">What Our Customers Say?</h2>
+                         <span class="section-title__tagline">Budaya Sumut</span>
+                         <h2 class="section-title__title">Rekreasi & Hiburan</h2>
                          <div class="section-title__line"></div>
                      </div>
-                     <p class="testimonial-one__text">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor to
-                         incidut labore et dolore magna for aliqua.</p>
+
                  </div>
              </div>
              <div class="col-xl-9">
+
                  <div class="testimonial-one__right">
                      <div class="owl-carousel owl-theme thm-owl__carousel testimonial-one__carousel" data-owl-options='{
                                 "loop": true,
@@ -340,159 +343,33 @@
                                     }
                                 }
                             }'>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-1.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">John Smith</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-2.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Sarah Albert</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
+                         <?php foreach ($artikel1  as $r) : ?>
+                             <div class="item">
+                                 <!--Blog One Start-->
+                                 <div class="blog-one__single">
+                                     <div class="blog-one__img">
+                                         <img style="height: 230px;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
+                                         <a href="<?= site_url('article-detail/') . $r['slug'] ?>">
+                                             <span class="blog-one__plus"></span>
+                                         </a>
+                                     </div>
+                                     <div class="blog-one__content" style="height: 150px;">
+                                         <div class="blog-one__date">
+                                             <p><?= $r['published_at'] ?></p>
+                                         </div>
+                                         <ul class="list-unstyled blog-one__meta">
+                                             <li><a href="<?= site_url('article-detail/') . $r['slug'] ?>"><i class="far fa-user-circle"></i> by <?= $r['nama_pengguna'] ?> </a>
+                                             </li>
+
+
+                                         </ul>
+                                         <h3 class="blog-one__title"><a href="<?= site_url('article-detail/') . $r['slug'] ?>"><?= $r['judul'] ?></a></h3>
+                                     </div>
                                  </div>
                              </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-3.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Kevin Martin</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-1.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">John Smith</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-2.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Sarah Albert</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-3.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Kevin Martin</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-1.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">John Smith</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-2.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Sarah Albert</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <!--Testimonial One Single-->
-                         <div class="testimonial-one__single">
-                             <div class="testimonial-one__quote">
-                                 <span class="icon-quotation"></span>
-                             </div>
-                             <p class="testimonial-one__text-2">Lorem ipsum dolor sit amet elit, sed do eiusmod
-                                 tempor to incidut labore et dolore magna for aliqua. Quis ipsum suspendisse.</p>
-                             <div class="testimonial-one__client-info">
-                                 <div class="testimonial-one__img">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/testimonial/testimonial-1-3.jpg" alt="">
-                                 </div>
-                                 <div class="testimonial-one__client-content">
-                                     <h4 class="testimonial-one__client-name">Kevin Martin</h4>
-                                     <p class="testimonial-one__client-title">Our Customer</p>
-                                 </div>
-                             </div>
-                         </div>
+
+                         <?php endforeach; ?>
+
                      </div>
                  </div>
              </div>
@@ -507,109 +384,38 @@
  <section class="blog-one">
      <div class="container">
          <div class="section-title text-center">
-             <span class="section-title__tagline">News & Updates</span>
-             <h2 class="section-title__title">News & Articles</h2>
+             <span class="section-title__tagline">Budaya Sumut</span>
+             <h2 class="section-title__title">Peninggalan Budaya</h2>
              <div class="section-title__line"></div>
          </div>
          <div class="row">
-             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                 <!--Blog One Start-->
-                 <div class="blog-one__single">
-                     <div class="blog-one__img">
-                         <img src="<?= base_url('assets-public/') ?>assets/images/blog/blog-1-1.jpg" alt="">
-                         <a href="blog-details.html">
-                             <span class="blog-one__plus"></span>
-                         </a>
-                     </div>
-                     <div class="blog-one__content">
-                         <div class="blog-one__date">
-                             <p>20 Feb, 2022</p>
+             <?php foreach ($artikel1  as $r) : ?>
+                 <div class="col-xl-3 col-lg-3   wow fadeInUp" data-wow-delay="100ms">
+                     <!--Blog One Start-->
+                     <div class="blog-one__single">
+                         <div class="blog-one__img">
+                             <img style="height: 230px;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
+                             <a href="<?= site_url('article-detail/') . $r['slug'] ?>">
+                                 <span class="blog-one__plus"></span>
+                             </a>
                          </div>
-                         <ul class="list-unstyled blog-one__meta">
-                             <li><a href="blog-details.html"><i class="far fa-user-circle"></i> by Admin </a>
-                             </li>
-                             <li><span>/</span></li>
-                             <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                             </li>
-                         </ul>
-                         <h3 class="blog-one__title"><a href="blog-details.html">Learn the Right Way to Use Wall
-                                 Sheet</a></h3>
+                         <div class="blog-one__content" style="height: 150px;">
+                             <div class="blog-one__date">
+                                 <p><?= $r['published_at'] ?></p>
+                             </div>
+                             <ul class="list-unstyled blog-one__meta">
+                                 <li><a href="<?= site_url('article-detail/') . $r['slug'] ?>"><i class="far fa-user-circle"></i> by <?= $r['nama_pengguna'] ?> </a>
+                                 </li>
+
+
+                             </ul>
+                             <h3 class="blog-one__title"><a href="<?= site_url('article-detail/') . $r['slug'] ?>"><?= $r['judul'] ?></a></h3>
+                         </div>
                      </div>
                  </div>
-             </div>
-             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                 <!--Blog One Start-->
-                 <div class="blog-one__single">
-                     <div class="blog-one__img">
-                         <img src="<?= base_url('assets-public/') ?>assets/images/blog/blog-1-2.jpg" alt="">
-                         <a href="blog-details.html">
-                             <span class="blog-one__plus"></span>
-                         </a>
-                     </div>
-                     <div class="blog-one__content">
-                         <div class="blog-one__date">
-                             <p>20 Feb, 2022</p>
-                         </div>
-                         <ul class="list-unstyled blog-one__meta">
-                             <li><a href="blog-details.html"><i class="far fa-user-circle"></i> by Admin </a>
-                             </li>
-                             <li><span>/</span></li>
-                             <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                             </li>
-                         </ul>
-                         <h3 class="blog-one__title"><a href="blog-details.html">Leverage agile frameworks to
-                                 provide</a></h3>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                 <!--Blog One Start-->
-                 <div class="blog-one__single">
-                     <div class="blog-one__img">
-                         <img src="<?= base_url('assets-public/') ?>assets/images/blog/blog-1-3.jpg" alt="">
-                         <a href="blog-details.html">
-                             <span class="blog-one__plus"></span>
-                         </a>
-                     </div>
-                     <div class="blog-one__content">
-                         <div class="blog-one__date">
-                             <p>20 Feb, 2022</p>
-                         </div>
-                         <ul class="list-unstyled blog-one__meta">
-                             <li><a href="blog-details.html"><i class="far fa-user-circle"></i> by Admin </a>
-                             </li>
-                             <li><span>/</span></li>
-                             <li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
-                             </li>
-                         </ul>
-                         <h3 class="blog-one__title"><a href="blog-details.html">Bring to the table win-win
-                                 survival strategis</a></h3>
-                     </div>
-                 </div>
-             </div>
+             <?php endforeach; ?>
+
          </div>
      </div>
  </section>
  <!--Blog One End-->
-
- <!--Newsletter Start-->
- <section class="newsletter">
-     <div class="container">
-         <div class="newsletter__inner wow fadeInUp" data-wow-delay="100ms">
-             <div class="newsletter-shape-1" style="background-image: url(assets/images/shapes/newsletter-shape-1.png);"></div>
-             <div class="newsletter__left">
-                 <h3 class="newsletter__title">Join Our Newsletter</h3>
-                 <p class="newsletter__text">Lorem ipsum dolor amet, elit do eiusmod sed</p>
-             </div>
-             <div class="newsletter__right">
-                 <form class="newsletter__form">
-                     <div class="newsletter__input-box">
-                         <input type="email" placeholder="Enter your email" name="email">
-                         <button type="submit" class="thm-btn newsletter__btn">Subscribe</button>
-                     </div>
-                 </form>
-             </div>
-         </div>
-     </div>
- </section>
- <!--Newsletter End-->

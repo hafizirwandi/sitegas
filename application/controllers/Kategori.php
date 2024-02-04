@@ -50,6 +50,7 @@ class Kategori extends CI_Controller
     public function save()
     {
         $data = $this->input->post();
+        $data['slug'] = url_title($data['nama_kategori'], '-', TRUE);
         $this->kategori->save($data);
         $alert = alert('primary', 'Data berhasil disimpan.');
         $this->session->set_flashdata('message', $alert);

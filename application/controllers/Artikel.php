@@ -25,14 +25,34 @@ class Artikel extends CI_Controller
         $this->load->model('Comment_model', 'comment');
         $this->load->model('Artikel_model', 'artikel');
         $this->load->model('Kategori_model', 'kategori');
+        $this->load->model('Kab_kota_model', 'kabkota');
     }
     public function index()
     {
+
+        $str_params = [];
+        $kat = $this->input->get('kat');
+        $status = $this->input->get('status');
+        $kabkota = $this->input->get('kabkota');
+        if ($kat != '99' && isset($kat)) {
+            $str_params['d.id_kategori'] = $kat;
+        }
+        if ($status != '99' && isset($status)) {
+            $str_params['a.status'] = $status;
+        }
+        if ($kabkota != '99' && isset($kabkota)) {
+            $str_params['a.id_kk'] = $kabkota;
+        }
+        //dd($str_params);
+
         //  canController('view artikel');
-        $artikel = $this->artikel->findAllJoin();
+        $artikel = $this->artikel->findAllJoin($str_params);
+        //  dd($artikel);
         foreach ($artikel as &$r) {
             $r['kategori'] = $this->kategori->findKategoriArtikelAllByArtikelID($r['id_artikel']);
         }
+        $data['kategori'] = $this->kategori->findAll();
+        $data['kabkota'] = $this->kabkota->findAll();
         //dd($artikel);
         $data['public']  = $this->public;
         $data['content'] = 'artikel/index';
@@ -46,6 +66,12 @@ class Artikel extends CI_Controller
         $data['public']  = $this->public;
         $data['content'] = 'artikel/add';
 
+        if ($this->session->userdata('role') == '1') {
+            $kabkota = $this->kabkota->findAll();
+        } else {
+            $kabkota = $this->kabkota->findAllWhere(['id_kk' => $this->session->userdata('id_kk')]);
+        }
+        $data['kabkota'] = $kabkota;
         $data['kategori'] = $this->kategori->findAll();
         $data['csrf']    = $this->csrf;
         $this->load->view('layouts/main-layout/index', $data);
@@ -64,7 +90,12 @@ class Artikel extends CI_Controller
     }
     public function edit($id)
     {
-
+        if ($this->session->userdata('role') == '1') {
+            $kabkota = $this->kabkota->findAll();
+        } else {
+            $kabkota = $this->kabkota->findAllWhere(['id_kk' => $this->session->userdata('id_kk')]);
+        }
+        $data['kabkota'] = $kabkota;
         $data['public']  = $this->public;
         $data['content'] = 'artikel/edit';
         $data['kategori'] = $this->kategori->findAll();
@@ -91,7 +122,7 @@ class Artikel extends CI_Controller
             $data['gambar_utama'] = $upload_data['file_name'];
         }
         if (!$data['slug']) {
-            $data['slug'] = url_title($data['judul']);
+            $data['slug'] = url_title($data['judul'], '-', TRUE);
         }
 
         unset($data['id_kategori']);

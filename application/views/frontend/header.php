@@ -1,43 +1,5 @@
  <header class="main-header-three clearfix">
-     <div class="main-header-three__top">
-         <div class="main-header-three__top-inner clearfix">
-             <div class="main-header-three__top-left">
-                 <ul class="list-unstyled main-header-three__top-address">
-                     <li>
-                         <div class="icon">
-                             <span class="icon-pin"></span>
-                         </div>
-                         <div class="text">
-                             <p>380 St Kilda Road Melbourne, Australia</p>
-                         </div>
-                     </li>
-                     <li>
-                         <div class="icon">
-                             <span class="icon-email"></span>
-                         </div>
-                         <div class="text">
-                             <p><a href="mailto:ambed@company.com">ambed@company.com</a></p>
-                         </div>
-                     </li>
-                 </ul>
-             </div>
-             <div class="main-header-three__top-right">
-                 <div class="main-header-three__top-right-content">
-                     <ul class="list-unstyled main-header-three__top-right-menu">
-                         <li><a href="blog.html">News & Media</a></li>
-                         <li><a href="faq.html">FAQs</a></li>
-                         <li><a href="about.html">About</a></li>
-                     </ul>
-                     <div class="main-header-three__top-right-social">
-                         <a href="#"><i class="fab fa-twitter"></i></a>
-                         <a href="#"><i class="fab fa-facebook"></i></a>
-                         <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                         <a href="#"><i class="fab fa-instagram"></i></a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+
      <nav class="main-menu main-menu-three clearfix">
          <div class="main-menu-three__wrapper clearfix">
              <div class="main-menu-three__left">
