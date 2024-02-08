@@ -5,9 +5,9 @@
              <div class="main-menu-three__left">
                  <div class="main-menu-three__logo-box">
                      <div class="main-menu-three__logo">
-                         <a href="index.html">
+                         <a href="<?= site_url() ?>">
                              <img style="width: 144px;" src="<?= base_url('assets/budaya-sumut.png') ?>" class="light-logo" alt="">
-                             <img src="assets/images/resources/logo-1.png" class="dark-logo" alt="">
+                             <img style="width: 144px;" src="<?= base_url('assets/budaya-sumut.png') ?>" class="dark-logo" alt="">
                          </a>
                      </div>
                  </div>

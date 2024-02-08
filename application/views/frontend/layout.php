@@ -98,7 +98,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="<?= base_url('assets-public/') ?>assets/images/resources/footer-logo.png" width="155" alt="" /></a>
+                <a href="<?= site_url() ?>" aria-label="logo image"><img src="<?= base_url('assets/budaya-sumut.png') ?>" width="155" alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
