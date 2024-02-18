@@ -43,6 +43,9 @@ class Artikel extends CI_Controller
         if ($kabkota != '99' && isset($kabkota)) {
             $str_params['a.id_kk'] = $kabkota;
         }
+        if ($this->session->userdata('role') == '2') {
+            $str_params['a.id_kk'] = $this->session->userdata('id_kk');
+        }
         //dd($str_params);
 
         //  canController('view artikel');

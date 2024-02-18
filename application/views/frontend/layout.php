@@ -56,8 +56,8 @@
 
 <body class="custom-cursor">
 
-    <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div>
+    <!-- <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div> -->
 
     <!-- style switcher -->
     <!-- <div class="style-switcher">
@@ -98,7 +98,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="<?= site_url() ?>" aria-label="logo image"><img src="<?= base_url('assets/budaya-sumut.png') ?>" width="155" alt="" /></a>
+                <a href="<?= site_url() ?>" aria-label="logo image"><img src="<?= base_url('assets/budaya-sumut-putih.png') ?>" width="155" alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>

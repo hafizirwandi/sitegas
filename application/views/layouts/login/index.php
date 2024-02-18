@@ -57,7 +57,7 @@
                         <!-- Brand logo--><a class="brand-logo" href="index.html">
 
                             <!-- <h2 class="brand-text text-primary ms-1">SITEGAS</h2> -->
-                            <img style="width:300px;" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
+                            <img style="width:300px;" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" alt="">
                         </a>
                         <!-- /Brand logo-->
                         <!-- Left Text-->
@@ -69,7 +69,7 @@
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <?= $this->session->flashdata('message'); ?>
-                                <img style="width:300px;" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
+                                <img style="width:300px;" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" alt="">
                                 <form class="auth-login-form mt-2" action="<?= site_url('login/auth-login') ?>" method="POST">
                                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                                     <div class="mb-1">

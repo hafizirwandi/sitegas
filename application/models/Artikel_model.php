@@ -97,4 +97,34 @@ class Artikel_model extends CI_Model
 
         return  $query->get($this->table . ' a', $limit)->result_array();
     }
+    public function  getDashboardByKategori()
+    {
+        return  $this->db->select(
+            "c.*,(select count('a.id_artikel') from tb_artikel a 
+            join tb_kategori_artikel b on b.id_artikel = a.id_artikel
+            where b.id_kategori = c.id_kategori  and a.status='1') as jlh"
+        )->from('tb_kategori c')->order_by('jlh', 'desc')->get()->result_array();
+    }
+    public function  getDashboardByKabkota()
+    {
+        return  $this->db->select(
+            "c.*,(select count('a.id_artikel') from tb_artikel a 
+            where a.id_kk = c.id_kk  and a.status='1') as jlh"
+        )->from('tb_kab_kota c')->order_by('jlh', 'desc')->get()->result_array();
+    }
+    public function getAllDataPerMonth($id_kk)
+    {
+        $year = date('Y');
+        return $this->db->query("SELECT LPAD(b.month, 2, '0') AS bulan, IFNULL(a.jlh, 0) AS jumlah_artikel
+            FROM (
+                SELECT 1 AS month UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6
+                UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12
+            ) AS b
+            LEFT JOIN (
+                SELECT SUBSTRING(published_at, 6, 2) AS bulan, COUNT(id_artikel) AS jlh
+                FROM tb_artikel 
+                WHERE id_kk='$id_kk' and status = '1' AND (published_at BETWEEN '$year-01-01' AND '$year-12-31') 
+                GROUP BY bulan
+            ) AS a ON a.bulan = LPAD(b.month, 2, '0') order by bulan asc")->result_array();
+    }
 }

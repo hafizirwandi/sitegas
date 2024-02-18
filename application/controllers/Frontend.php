@@ -90,4 +90,12 @@ class Frontend extends CI_Controller
 		$data['kabkota'] = $this->kab_kota->findAll();
 		$this->load->view('frontend/layout', $data);
 	}
+	public function hubungi_kami()
+	{
+		$this->public['title'] = 'Hubungi Kami';
+		$data['public'] = $this->public;
+		$data['content'] = 'frontend/hubungi_kami';
+		$data['kabkota'] = $this->kab_kota->findAll();
+		$this->load->view('frontend/layout', $data);
+	}
 }

@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <form>
-            <div class="row justify-content-center">
+            <div class="row ">
 
                 <div class="col-md-3">
                     <select name="kat" class="form-control">
@@ -14,19 +14,21 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="col-md-5">
-                    <select name="kabkota" class="form-control">
-                        <option value="99">Semua Kabupaten Kota</option>
-                        <?php foreach ($kabkota as $r) : ?>
-                            <option value="<?= $r['id_kk'] ?>" <?= $r['id_kk'] == $this->input->get('kabkota') ? 'selected' : '' ?>><?= $r['nama_kab_kota'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                <?php if ($this->session->userdata('role') == '1') : ?>
+                    <div class="col-md-5">
+                        <select name="kabkota" class="form-control">
+                            <option value="99">Semua Kabupaten Kota</option>
+                            <?php foreach ($kabkota as $r) : ?>
+                                <option value="<?= $r['id_kk'] ?>" <?= $r['id_kk'] == $this->input->get('kabkota') ? 'selected' : '' ?>><?= $r['nama_kab_kota'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
                 <div class="col-md-3">
                     <select class="form-select" name="status">
                         <option value="99">Semua Status</option>
                         <option value="1" <?= $this->input->get('status') == '1' ? 'selected' : '' ?>>Published</option>
-                        <option value="2" <?= $this->input->get('status') == '2' ? 'selected' : '' ?>>Pending</option>
+                        <option value="2" <?= $this->input->get('status') == '2' ? 'selected' : '' ?>>Progress</option>
                         <option value="0" <?= $this->input->get('status') == '0' ? 'selected' : '' ?>>Draft</option>
                         <option value="3" <?= $this->input->get('status') == '3' ? 'selected' : '' ?>>Ditolak</option>
                     </select>

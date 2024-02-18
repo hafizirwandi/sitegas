@@ -84,6 +84,32 @@ function createReadMore($text, $maxLength = 250, $suffix = '...')
     // Memotong teks dan menambahkan suffix
     return  $trimmedText = substr($text, 0, $maxLength) . $suffix;
 }
+function listBulan($bulan)
+{
+    $daftarSingkatan = array(
+        1 => "Jan",
+        2 => "Feb",
+        3 => "Mar",
+        4 => "Apr",
+        5 => "Mei",
+        6 => "Jun",
+        7 => "Jul",
+        8 => "Agu",
+        9 => "Sep",
+        10 => "Okt",
+        11 => "Nov",
+        12 => "Des"
+    );
+
+    $hasil = array();
+    for ($i = 1; $i <= $bulan; $i++) {
+        if (isset($daftarSingkatan[$i])) {
+            $hasil[] = $daftarSingkatan[$i];
+        }
+    }
+    return $hasil;
+}
+
 
 
 define(

@@ -92,14 +92,14 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item me-auto"><a class="navbar-brand" href="<?= site_url() ?>">
 
-                        <img width="120px" src="<?= base_url('assets/budaya-sumut.png') ?>" alt="">
+                        <img width="100%" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" alt="">
 
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
             </ul>
         </div>
         <div class="shadow-bottom"></div>
-        <div class="main-menu-content">
+        <div class="main-menu-content" style="margin-top: 30px;">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="<?= ($public['menu'] == 'home') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('home') ?>">
@@ -107,7 +107,7 @@
                     </a>
                 </li>
 
-                <?php if ($this->session->userdata('level_login') == '1') : ?>
+                <?php if ($this->session->userdata('role') == '1') : ?>
                     <li class="<?= ($public['menu'] == 'kab-kota') ? 'active' : '' ?> nav-item">
                         <a class="d-flex align-items-center" href="<?= site_url('kab-kota') ?>">
                             <i data-feather='folder'></i><span class="menu-title text-truncate">Kabupaten Kota</span>
@@ -118,6 +118,11 @@
                             <i data-feather='folder'></i><span class="menu-title text-truncate">Kategori</span>
                         </a>
                     </li>
+                    <li class="<?= ($public['menu'] == 'pengguna') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('pengguna') ?>">
+                            <i data-feather='user'></i><span class="menu-title text-truncate">Pengguna</span>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <li class="<?= ($public['menu'] == 'artikel') ? 'active' : '' ?> nav-item">
@@ -125,11 +130,7 @@
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Artikel</span>
                     </a>
                 </li>
-                <li class="<?= ($public['menu'] == 'pengguna') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('pengguna') ?>">
-                        <i data-feather='user'></i><span class="menu-title text-truncate">Pengguna</span>
-                    </a>
-                </li>
+
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('logout') ?>">
                         <i data-feather='log-out'></i><span class="menu-title text-truncate">Keluar</span>
@@ -189,6 +190,7 @@
     <!-- END: Theme JS-->
 
     <script src="<?= base_url('assets-admin/') ?>app-assets/js/scripts/pages/page-blog-edit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 
     <script>

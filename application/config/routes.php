@@ -53,6 +53,7 @@ $route['default_controller'] = 'frontend';
 $route['article'] = 'frontend/article';
 $route['article-detail/(:any)'] = 'frontend/article_detail/$1';
 $route['kabupaten-kota'] = 'frontend/kabupaten_kota';
+$route['hubungi-kami'] = 'frontend/hubungi_kami';
 
 
 $route['404_override'] = '';

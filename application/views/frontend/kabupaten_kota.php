@@ -1,6 +1,6 @@
  <!--Page Header Start-->
  <section class="page-header" style="margin-top: 0px;">
-     <div class="page-header-bg" style="background-image: url(assets-public/assets/images/backgrounds/page-header-bg.jpg)">
+     <div class="page-header-bg" style="background-image: url(<?= base_url() ?>assets/bg-page.png)">
      </div>
      <div class="container">
          <div class="page-header__inner">

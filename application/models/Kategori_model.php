@@ -63,12 +63,5 @@ class Kategori_model extends CI_Model
     {
         return $this->db->where($array)->delete('tb_kategori_artikel');
     }
-    public function  getDashboardByPenggunaID($id_pengguna)
-    {
-        return  $this->db->select(
-            "c.*,(select count('a.id_artikel') from tb_artikel a 
-            join tb_kategori_artikel b on b.id_artikel = a.id_artikel
-            where b.id_kategori = c.id_kategori  and a.status='1') as jlh"
-        )->from('tb_kategori c')->get()->result_array();
-    }
+    
 }

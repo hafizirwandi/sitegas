@@ -4,10 +4,10 @@
          <div class="main-menu-three__wrapper clearfix">
              <div class="main-menu-three__left">
                  <div class="main-menu-three__logo-box">
-                     <div class="main-menu-three__logo">
+                     <div class="main-menu-three__logo" style="padding: 10px 0 !important;">
                          <a href="<?= site_url() ?>">
-                             <img style="width: 144px;" src="<?= base_url('assets/budaya-sumut.png') ?>" class="light-logo" alt="">
-                             <img style="width: 144px;" src="<?= base_url('assets/budaya-sumut.png') ?>" class="dark-logo" alt="">
+                             <img style="width: 90%;" src="<?= base_url('assets/budaya-sumut-putih.png') ?>" class="light-logo" alt="">
+                             <img style="width: 90%;" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" class="dark-logo" alt="">
                          </a>
                      </div>
                  </div>

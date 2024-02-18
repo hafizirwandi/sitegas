@@ -21,6 +21,10 @@ class Kab_kota_model extends CI_Model
     {
         return $this->db->get_where($this->table, $where)->row_array();
     }
+    public function findAllWhere($where)
+    {
+        return $this->db->get_where($this->table, $where)->result_array();
+    }
 
     public function save($data)
     {
@@ -41,4 +45,5 @@ class Kab_kota_model extends CI_Model
     {
         return $this->db->where($this->primary_key, $id)->delete($this->table);
     }
+    
 }
