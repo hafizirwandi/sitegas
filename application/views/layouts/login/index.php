@@ -57,7 +57,7 @@
                         <!-- Brand logo--><a class="brand-logo" href="index.html">
 
                             <!-- <h2 class="brand-text text-primary ms-1">SITEGAS</h2> -->
-                            <img style="width:300px;" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" alt="">
+                            <!-- <img style="width:300px;" src="<?= base_url('assets/budaya-sumut-hitam.png') ?>" alt=""> -->
                         </a>
                         <!-- /Brand logo-->
                         <!-- Left Text-->

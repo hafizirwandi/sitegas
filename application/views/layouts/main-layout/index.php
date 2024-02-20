@@ -124,7 +124,11 @@
                         </a>
                     </li>
                 <?php endif; ?>
-
+                <li class="<?= ($public['menu'] == 'slideshow') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('slideshow') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Slideshow</span>
+                    </a>
+                </li>
                 <li class="<?= ($public['menu'] == 'artikel') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('artikel') ?>">
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Artikel</span>
