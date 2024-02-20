@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'budaya_sumut',
+	'hostname' => '103.28.53.243',
+	'username' => 'budayasumut_db_budaya_sumut',
+	'password' => 'L4T;-G*Ywiq%',
+	'database' => 'budayasumut_db_budaya_sumut',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
