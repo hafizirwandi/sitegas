@@ -129,6 +129,11 @@
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Slideshow</span>
                     </a>
                 </li>
+                <li class="<?= ($public['menu'] == 'menu') ? 'active' : '' ?> nav-item">
+                    <a class="d-flex align-items-center" href="<?= site_url('menu') ?>">
+                        <i data-feather='folder'></i><span class="menu-title text-truncate">Menu</span>
+                    </a>
+                </li>
                 <li class="<?= ($public['menu'] == 'footer') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('footer') ?>">
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Footer</span>
