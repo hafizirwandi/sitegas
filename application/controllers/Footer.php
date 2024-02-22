@@ -35,6 +35,7 @@ class Footer extends CI_Controller
         $data['csrf']    = $this->csrf;
         $data['sub_content'] = 'footer/footer_one';
         $data['footer'] = $this->footer_one->find('1');
+
         $subcontent = $this->input->get('subcontent');
         if ($subcontent == 'footer-two') {
             $data['link'] = $this->link->findAllWhere(['footer' => 'footer-two']);
@@ -74,18 +75,41 @@ class Footer extends CI_Controller
         redirect($this->agent->referrer());
     }
 
-    public function save_footer()
+    public function save_footer($type)
     {
+        $data = $this->input->post();
+
         $this->load->model('Footer_one_model', 'footer_one');
         $this->load->model('Footer_two_model', 'footer_two');
         $this->load->model('Footer_three_model', 'footer_three');
         $this->load->model('Footer_four_model', 'footer_four');
-        $data = $this->input->post();
 
-        if($data['footer']=='footer_one'){
-            
+        if ($type == 'one') {
+            $config['upload_path']   = './uploads/footer';
+            $config['allowed_types'] = 'png|jpg';
+            $config['max_size']      = 5024;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload', $config);
+
+            if ($_FILES['file_logo']['error'] !== 4) {
+                $this->upload->do_upload('file_logo');
+                $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+                $data['logo'] = $upload_data['file_name'];
+            }
+            $this->footer_one->save($data);
         }
-        $this->link->save($data);
+
+        if ($type == 'two') {
+            $this->footer_two->save($data);
+        }
+
+        if ($type == 'three') {
+            $this->footer_three->save($data);
+        }
+        if ($type == 'four') {
+            $this->footer_four->save($data);
+        }
+
         $alert = alert('primary', 'Data berhasil disimpan.');
         $this->session->set_flashdata('message', $alert);
         redirect($this->agent->referrer());

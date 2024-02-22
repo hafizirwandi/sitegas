@@ -1,4 +1,4 @@
-<form action="<?= site_url('footer/save-footer/two') ?>" method="post" enctype="multipart/form-data">
+<form action="<?= site_url('footer/save-footer/three') ?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
     <input type="hidden" name="id" value="<?= $footer['id'] ?>">
     <div class="row">
@@ -70,7 +70,7 @@
     function add() {
         $('#myModal').modal('show');
         $('#myModal .modal-header').html('Tambah Link');
-        $('#myModal .modal-body').load('<?= site_url('footer/add-link/footer-two') ?>');
+        $('#myModal .modal-body').load('<?= site_url('footer/add-link/footer-three') ?>');
     }
 
     function edit(id) {

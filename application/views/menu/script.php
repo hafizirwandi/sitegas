@@ -29,9 +29,29 @@
         //     editor.setData(arrayjson);
         // });
 
-        $('#btnOutput').on('click', function() {
+        $('#btnSave').on('click', function() {
             var str = editor.getString();
-            $("#out").text(str);
+            // $("#out").text(str);
+            var csrfName = '<?= $csrf['name'] ?>';
+            var csrfHash = '<?= $csrf['hash'] ?>';
+            $.ajax({
+                url: '<?= site_url('menu/save') ?>',
+                method: 'post',
+                //dataType: 'json',
+                data: {
+                    id_menu: '1',
+                    menu_json: str,
+                    [csrfName]: csrfHash
+                },
+                success: function(data) {
+                    alert('Data telah berhasil disimpan');
+                    //location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert('Data gagal disimpan');
+                    console.error('Error:', status, error);
+                }
+            });
         });
 
         $("#btnUpdate").click(function() {
@@ -44,10 +64,10 @@
         /* ====================================== */
 
         /** PAGE ELEMENTS **/
-        $('[data-toggle="tooltip"]').tooltip();
-        $.getJSON("https://api.github.com/repos/davicotico/jQuery-Menu-Editor", function(data) {
-            $('#btnStars').html(data.stargazers_count);
-            $('#btnForks').html(data.forks_count);
-        });
+        // $('[data-toggle="tooltip"]').tooltip();
+        // $.getJSON("https://api.github.com/repos/davicotico/jQuery-Menu-Editor", function(data) {
+        //     $('#btnStars').html(data.stargazers_count);
+        //     $('#btnForks').html(data.forks_count);
+        // });
     });
 </script>

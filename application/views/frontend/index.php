@@ -15,56 +15,30 @@
                 "delay": 5000
                 }}'>
          <div class="swiper-wrapper">
+             <?php
+                $CI = &get_instance();
+                $CI->load->model('Slideshow_model', 'slideshow');
+                $slideshow = $CI->slideshow->findAllWhere(['status' => '1']);
+                foreach ($slideshow as $r) : ?>
 
-             <div class="swiper-slide">
-                 <div class="image-layer-three" style="background-image: url(assets/slideshow/slide_1.jpg);"></div>
-                 <!-- /.image-layer -->
-                 <div class="container">
-                     <div class="row">
-                         <div class="col-xl-12">
-                             <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Selamat datang di Sumatera Utara</p>
-                                 <h2 class="main-slider-three__title">Ayo Mengenal <br> Lebih Dekat <br>
-                                     Adat Istiadat Sumut
-                                 </h2>
 
+                 <div class="swiper-slide">
+                     <div class="image-layer-three" style="background-image: url(<?= base_url('uploads/slideshow/') . $r['slideshow'] ?>);"></div>
+                     <!-- /.image-layer -->
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-xl-12">
+                                 <div class="main-slider-three__content">
+                                     <p class="main-slider-three__sub-title"><?= $r['judul'] ?></p>
+                                     <h2 class="main-slider-three__title"><?= $r['sub_judul'] ?> </h2>
+
+                                 </div>
                              </div>
                          </div>
                      </div>
                  </div>
-             </div>
-             <div class="swiper-slide">
-                 <div class="image-layer-three" style="background-image: url(assets/slideshow/slide_2.jpg);"></div>
-                 <!-- /.image-layer -->
-                 <div class="container">
-                     <div class="row">
-                         <div class="col-xl-12">
-                             <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Budaya Sumut</p>
-                                 <h2 class="main-slider-three__title">Lestarikan <br> Budaya Bangsa <br> Indonesia
-                                 </h2>
+             <?php endforeach; ?>
 
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="swiper-slide">
-                 <div class="image-layer-three" style="background-image: url(assets/slideshow/slide_3.jpg);"></div>
-                 <!-- /.image-layer -->
-                 <div class="container">
-                     <div class="row">
-                         <div class="col-xl-12">
-                             <div class="main-slider-three__content">
-                                 <p class="main-slider-three__sub-title">Budaya Sumut</p>
-                                 <h2 class="main-slider-three__title">Belajar Budaya<br> Bukan <br> Jadul
-                                 </h2>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
          </div>
 
          <!-- If we need navigation buttons -->

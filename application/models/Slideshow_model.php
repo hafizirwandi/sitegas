@@ -14,6 +14,10 @@ class Slideshow_model extends CI_Model
     {
         return $this->db->get_where($this->table, [$this->primary_key => $id])->row_array();
     }
+    public function findAllWhere($array)
+    {
+        return $this->db->get_where($this->table, $array)->result_array();
+    }
     public function save($data)
     {
         if ($data[$this->primary_key] != '') {

@@ -109,7 +109,33 @@ function listBulan($bulan)
     }
     return $hasil;
 }
+function menu()
+{
+    $CI = &get_instance();
+    $CI->load->model('Menu_model', 'menu');
+    $menu = json_decode($CI->menu->find('1')['menu_json'], TRUE);
 
+    $str = "<ul class='main-menu__list one-page-scroll-menu'>";
+    foreach ($menu as $r) {
+        if (isset($r['children'])) {
+            $str .= "<li class='dropdown'><a href='#'>$r[text]<span class='main-menu-border'></span></a><ul>";
+            foreach ($r['children'] as $j) {
+                $str .= "<li><a href='$j[href]'>$j[text]</a></li>";
+            }
+            $str .= "</ul></li>";
+        } else {
+            $str .= "<li class='scrollToLink'><a href='$r[href]'>$r[text]</a></li>";
+        }
+    }
+    $str .= "</ul>";
+    return $str;
+}
+
+function footer_one()
+{
+    $CI = &get_instance();
+    $CI->load->model('Footer_one_model', 'menu');
+}
 
 
 define(

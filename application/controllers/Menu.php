@@ -35,28 +35,13 @@ class Menu extends CI_Controller
 
         $this->load->view('layouts/main-layout/index', $data);
     }
-    public function add()
-    {
-        $data['csrf']    = $this->csrf;
-        $this->load->view('menu/add', $data);
-    }
-    public function edit($id = null)
-    {
 
-        $data['csrf']    = $this->csrf;
-        $data['data']    = $this->menu->find($id);
-
-        $this->load->view('menu/edit', $data);
-    }
 
     public function save()
     {
         $data = $this->input->post();
-        $data['slug'] = url_title($data['nama_menu'], '-', TRUE);
+
         $this->menu->save($data);
-        $alert = alert('primary', 'Data berhasil disimpan.');
-        $this->session->set_flashdata('message', $alert);
-        redirect($this->agent->referrer());
     }
     public function delete()
     {
