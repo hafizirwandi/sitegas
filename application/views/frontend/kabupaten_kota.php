@@ -23,28 +23,32 @@
          <div class="row">
 
              <?php foreach ($kabkota as $r) : ?>
+
                  <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="100ms">
                      <!--Team One single-->
-                     <div class="team-one__single">
-                         <div class="team-one__img-box">
-                             <div class="team-one__img" style="padding: 10px;">
-                                 <img style="border-top-right-radius:0px !important" width="200px" src="<?= base_url('uploads/logo_kab_kota/') . $r['logo'] ?>" alt="">
+                     <a href="<?= site_url('article?kabkota=') . $r['slug'] ?>">
+                         <div class="team-one__single">
+                             <div class="team-one__img-box">
+                                 <div class="team-one__img" style="padding: 10px;">
+                                     <img style="border-top-right-radius:0px !important" width="200px" src="<?= base_url('uploads/logo_kab_kota/') . $r['logo'] ?>" alt="">
 
-                             </div>
-                         </div>
-                         <div class="team-one__content">
-                             <div class="team-one__title-box">
-                                 <div class="team-one__title-shape">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/shapes/team-one-title-box-shape.png" alt="">
-                                     <div class="team-one__title-text">
-                                         <a href="<?= site_url('article?kabkota=') . $r['slug'] ?>"><span class="team-one__title" style="font-size: 7pt !important;"><?= $r['nama_kab_kota'] ?></span></a>
-                                     </div>
                                  </div>
                              </div>
+                             <div class="team-one__content">
+                                 <div class="team-one__title-box">
+                                     <div class="team-one__title-shape">
+                                         <img src="<?= base_url('assets-public/') ?>assets/images/shapes/team-one-title-box-shape.png" alt="">
+                                         <div class="team-one__title-text">
+                                             <span class="team-one__title" style="font-size: 7pt !important;"><?= $r['nama_kab_kota'] ?></span>
+                                         </div>
+                                     </div>
+                                 </div>
 
+                             </div>
                          </div>
-                     </div>
+                     </a>
                  </div>
+
              <?php endforeach; ?>
 
          </div>

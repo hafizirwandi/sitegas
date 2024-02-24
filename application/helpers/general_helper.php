@@ -134,9 +134,67 @@ function menu()
 function footer_one()
 {
     $CI = &get_instance();
-    $CI->load->model('Footer_one_model', 'menu');
-}
+    $CI->load->model('Footer_one_model', 'footer');
+    $footer = $CI->footer->find('1');
+    $str = "<div class='footer-widget__column footer-widget__about'>
+            <div class='footer-widget__logo'>
+                <a href='" . site_url() . "'> <img style='width: 100%;' src='" . base_url('uploads/footer/') . $footer['logo'] . "' class='light-logo' alt='></a>
+            </div>
+            <div class='site-footer__social'>";
+    if ($footer['twitter']) {
+        $str .= "<a href='" . $footer['twitter'] . "'><i class='fab fa-twitter'></i></a>";
+    }
+    if ($footer['facebook']) {
+        $str .= "<a href='" . $footer['facebook'] . "'><i class='fab fa-facebook'></i></a>";
+    }
+    if ($footer['tiktok']) {
+        $str .= "<a href='" . $footer['tiktok'] . "'><i class='fab fa-tiktok'></i></a>";
+    }
+    if ($footer['instagram']) {
+        $str .= "<a href='" . $footer['instagram'] . "'><i class='fab fa-instagram'></i></a>";
+    }
+    $str .= "</div></div>";
 
+    return $str;
+}
+function footer_two()
+{
+    $CI = &get_instance();
+
+    $CI->load->model('Link_model', 'link');
+    $CI->load->model('Footer_two_model', 'footer2');
+    $link = $CI->link->findAllWhere(['footer' => 'footer-two']);
+    $footer = $CI->footer2->find('1');
+    // dd($footer);
+    $str = "<div class='footer-widget__column footer-widget__explore clearfix'>
+                <h3 class='footer-widget__title'>" . $footer['judul'] . "</h3>
+                <ul class='footer-widget__explore-list list-unstyled clearfix'>";
+    foreach ($link as $r) {
+        $str .= "<li><a href='" . $r['url'] . "'>" . $r['judul'] . "</a></li>";
+    }
+
+    $str .= "</ul></div>";
+    return $str;
+}
+function footer_three()
+{
+    $CI = &get_instance();
+
+    $CI->load->model('Link_model', 'link');
+    $CI->load->model('Footer_two_model', 'footer3');
+    $link = $CI->link->findAllWhere(['footer' => 'footer-three']);
+    $footer = $CI->footer3->find('1');
+    // dd($footer);
+    $str = "<div class='footer-widget__column footer-widget__explore clearfix'>
+                <h3 class='footer-widget__title'>" . $footer['judul'] . "</h3>
+                <ul class='footer-widget__explore-list list-unstyled clearfix'>";
+    foreach ($link as $r) {
+        $str .= "<li><a href='" . $r['url'] . "'>" . $r['judul'] . "</a></li>";
+    }
+
+    $str .= "</ul></div>";
+    return $str;
+}
 
 define(
     'KELURAHAN',

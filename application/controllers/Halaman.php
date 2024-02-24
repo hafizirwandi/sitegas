@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu extends CI_Controller
+class Halaman extends CI_Controller
 {
 
     protected $public = array();
@@ -15,8 +15,8 @@ class Menu extends CI_Controller
         if ($this->session->userdata('role') != '1') {
             show_error('Maaf, anda tidak diizinkan mengakses modul ini');
         }
-        $this->public['title']     = 'Menu';
-        $this->public['menu']     = 'menu';
+        $this->public['title']     = 'Halaman';
+        $this->public['menu']     = 'halaman';
         $this->public['submenu'] = '';
         $this->public['css']    = null;
         $this->public['script']    = null;
@@ -24,17 +24,19 @@ class Menu extends CI_Controller
             'name' => $this->security->get_csrf_token_name(),
             'hash' => $this->security->get_csrf_hash()
         );
-
-        $this->load->model('Menu_model', 'menu');
     }
     public function index()
     {
-        //  canController('view menu');
-        $this->public['script'] =  'menu/script';
+        $this->load->model('Halaman_model', 'halaman');
+        //  canController('view kabkota');
         $data['public']  = $this->public;
-        $data['content'] = 'menu/index';
-        $data['data']     = $this->menu->find('1');
+        $data['content'] = 'halaman/index';
         $data['csrf']    = $this->csrf;
+        $data['sub_content'] = 'halaman/hubungi_kami';
+        $data['halaman'] = $this->halaman->find('1');
+        $data['data'] = json_decode($data['halaman']['halaman_json'], TRUE);
+
+        $subcontent = $this->input->get('subcontent');
 
         $this->load->view('layouts/main-layout/index', $data);
     }
@@ -42,16 +44,16 @@ class Menu extends CI_Controller
 
     public function save()
     {
-        $data = $this->input->post();
+        $post = $this->input->post();
 
-        $this->menu->save($data);
-    }
-    public function delete()
-    {
+        $this->load->model('Halaman_model', 'halaman');
 
-        $id = $this->input->post('id');
-        $this->menu->delete($id);
-        $alert = alert('primary', 'Data berhasil dihapus.');
+        $data = [
+            'id_halaman' => $post['id_halaman'],
+            'halaman_json' => json_encode($post),
+        ];
+        $this->halaman->save($data);
+        $alert = alert('primary', 'Data berhasil disimpan.');
         $this->session->set_flashdata('message', $alert);
         redirect($this->agent->referrer());
     }

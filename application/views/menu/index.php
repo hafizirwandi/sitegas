@@ -36,22 +36,7 @@
                             <input type="text" class="form-control item-menu" id="href" name="href" placeholder="URL">
                         </div>
                     </div>
-                    <div class="mb-1">
-                        <div class="form-group">
-                            <label for="target">Target</label>
-                            <select name="target" id="target" class="form-control item-menu">
-                                <option value="_self">Self</option>
-                                <option value="_blank">Blank</option>
-                                <option value="_top">Top</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-1">
-                        <div class="form-group">
-                            <label for="title">Tooltip</label>
-                            <input type="text" name="title" class="form-control item-menu" id="title" placeholder="Tooltip">
-                        </div>
-                    </div>
+
                     <div class="mb-1">
                         <button type="button" id="btnUpdate" class="btn btn-primary" disabled><i class="fas fa-sync-alt"></i> Update</button>
                         <button type="button" id="btnAdd" class="btn btn-success"><i class="fas fa-plus"></i> Add</button>

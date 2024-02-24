@@ -11,6 +11,10 @@ class Pengguna extends CI_Controller
     parent::__construct();
     $this->load->model('Security_model', 'secure');
     $this->secure->isLogin();
+
+    if ($this->session->userdata('role') != '1') {
+      show_error('Maaf, anda tidak diizinkan mengakses modul ini');
+    }
     // Your own constructor code
     $this->public['title']   = 'Pengguna';
     $this->public['menu']   = 'pengguna';

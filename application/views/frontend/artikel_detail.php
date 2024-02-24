@@ -87,12 +87,12 @@
             </div>
             <div class="col-xl-4 col-lg-5 order-first">
                 <div class="sidebar">
-                    <div class="sidebar__single sidebar__search">
+                    <!-- <div class="sidebar__single sidebar__search">
                         <form action="#" class="sidebar__search-form">
                             <input type="search" placeholder="Search here">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
-                    </div>
+                    </div> -->
 
                     <div class="sidebar__single sidebar__post">
                         <h3 class="sidebar__title">Latest Posts</h3>

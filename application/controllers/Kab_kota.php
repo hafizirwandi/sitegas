@@ -12,6 +12,9 @@ class Kab_kota extends CI_Controller
         $this->load->model('Security_model', 'secure');
         $this->secure->isLogin();
         // Your own constructor code
+        if ($this->session->userdata('role') != '1') {
+            show_error('Maaf, anda tidak diizinkan mengakses modul ini');
+        }
         $this->public['title']     = 'Kabupaten Kota';
         $this->public['menu']     = 'kab-kota';
         $this->public['submenu'] = '';

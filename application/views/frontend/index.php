@@ -69,12 +69,12 @@
                  <div class="about-one__left">
                      <div class="section-title text-left">
                          <!-- <span class="section-title__tagline">About company</span> -->
-                         <h2 class="section-title__title">Dinas Budaya dan Pariwisata Pemprovsu</h2>
-                         <div class="section-title__line"></div>
+                         <h2 class="section-title__title"><?= $about['judul'] ?></h2>
+                         <div class="section-title__line"><?= $about['sub_judul'] ?></div>
                      </div>
 
 
-                     <p class="about-one__text-2" style="text-align: justify;">Dinas Kebudayaan dan Pariwisata Provinsi Sumatera Utara dipimpin oleh seorang Kepala Dinas yang dalam melaksanakan tugas berada di bawah dan bertanggung jawab kepada Gubernur melalui Sekretaris Daerah, sebagaimana ditetapkan dalam Peraturan Gubernur Sumatera Utara Nomor 41 Tahun 2007 tentang Rincian Tugas Pokok dan Fungsi Masing-masing Jabatan pada Dinas Kebudayaan dan Pariwisata Provinsi Sumatera Utara. Kepala Dinas mempunyai tugas pokok membantu Gubernur dalam melaksanakan tugas di bidang pembinaan seni budaya, sejarah, kepurbakalaan, pemasaran pariwisata, obyek wisata dan usaha pariwisata serta tugas pembantuan.</p>
+                     <p class="about-one__text-2" style="text-align: justify;"><?= $about['keterangan'] ?></p>
 
 
                  </div>
@@ -83,10 +83,10 @@
                  <div class="about-one__right">
                      <div class="about-one__img-box wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
                          <div class="about-one__img">
-                             <img src="<?= base_url('assets/about_1.png') ?>" alt="">
+                             <img src="<?= base_url('uploads/halaman/') . $about['gambar_1'] ?>" alt="">
                          </div>
                          <div class="about-one__small-img">
-                             <img src="<?= base_url('assets/about_2.png') ?>" alt="">
+                             <img src="<?= base_url('uploads/halaman/') . $about['gambar_2'] ?>" alt="">
                          </div>
 
                          <div class="about-one__shape-1 float-bob-y"></div>
@@ -106,12 +106,12 @@
 
 
 
- <!--Project One Start-->
+ <!--Section 1 Start-->
  <section class="project-one">
      <div class="container">
          <div class="section-title text-center">
-             <span class="section-title__tagline">Budaya Sumut</span>
-             <h2 class="section-title__title">Warisan Budaya</h2>
+             <span class="section-title__tagline"><?= $section_2['sub_judul'] ?></span>
+             <h2 class="section-title__title"><?= $section_2['judul'] ?></h2>
              <div class="section-title__line"></div>
          </div>
          <div class="row justify-content-center">
@@ -120,7 +120,7 @@
                      <div class="project-one__main-content">
                          <div class="swiper-container" id="project-one__carousel">
                              <div class="swiper-wrapper">
-                                 <?php foreach ($artikel1 as $r) : ?>
+                                 <?php foreach ($artikel_2 as $r) : ?>
                                      <div class="swiper-slide">
                                          <div class="row">
                                              <div class="col-xl-6 col-lg-6">
@@ -155,7 +155,7 @@
                      <div class="project-one__thumb-box">
                          <div class="swiper-container" id="project-one__thumb">
                              <div class="swiper-wrapper">
-                                 <?php foreach ($artikel1 as $r) : ?>
+                                 <?php foreach ($artikel_2 as $r) : ?>
                                      <div class="swiper-slide">
                                          <div class="project-one__img-holder">
                                              <img style="width: 100%;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
@@ -182,17 +182,17 @@
              <div class="col-xl-12">
                  <div class="project-one__more-project">
                      <div class="project-one__more-project-content">
-                         <a href="<?= site_url('article') ?>">View more</a>
+                         <a href="<?= $read_more_2 ?>">View more</a>
                      </div>
                  </div>
              </div>
          </div>
      </div>
  </section>
- <!--Project One End-->
+ <!--Section 1 End-->
 
 
- <!--Team Page Start-->
+ <!--Section 2 Start-->
  <section class="team-page team-page--carousel">
      <div class="container">
          <div class="team-one__top">
@@ -231,28 +231,30 @@
 					}
 				}'>
              <?php foreach ($kabkota1 as $r) : ?>
-                 <div class="item">
-                     <!--Team One single-->
-                     <div class="team-one__single">
-                         <div class="team-one__img-box">
-                             <div class="team-one__img" style="padding:10px">
-                                 <img style="border-top-right-radius:0px !important" width="200px" src="<?= base_url('uploads/logo_kab_kota/') . $r['logo'] ?>" alt="">
+                 <a href="<?= site_url('article?kabkota=') . $r['slug'] ?>">
+                     <div class="item">
+                         <!--Team One single-->
+                         <div class="team-one__single">
+                             <div class="team-one__img-box">
+                                 <div class="team-one__img" style="padding:10px">
+                                     <img style="border-top-right-radius:0px !important" width="200px" src="<?= base_url('uploads/logo_kab_kota/') . $r['logo'] ?>" alt="">
 
-                             </div>
-                         </div>
-                         <div class="team-one__content">
-                             <div class="team-one__title-box">
-                                 <div class="team-one__title-shape">
-                                     <img src="<?= base_url('assets-public/') ?>assets/images/shapes/team-one-title-box-shape.png" alt="">
-                                     <div class="team-one__title-text">
-                                         <a href="<?= site_url('article?kabkota=') . $r['slug'] ?>"><span class="team-one__title" style="font-size: 7pt !important;"><?= $r['nama_kab_kota'] ?></span></a>
-                                     </div>
                                  </div>
                              </div>
+                             <div class="team-one__content">
+                                 <div class="team-one__title-box">
+                                     <div class="team-one__title-shape">
+                                         <img src="<?= base_url('assets-public/') ?>assets/images/shapes/team-one-title-box-shape.png" alt="">
+                                         <div class="team-one__title-text">
+                                             <span class="team-one__title" style="font-size: 7pt !important;"><?= $r['nama_kab_kota'] ?></span>
+                                         </div>
+                                     </div>
+                                 </div>
 
+                             </div>
                          </div>
                      </div>
-                 </div>
+                 </a>
              <?php endforeach; ?>
 
 
@@ -270,9 +272,9 @@
      </div>
 
  </section>
- <!--Team Page End-->
+ <!--Section 2 End-->
 
- <!--Testimonial One Start-->
+ <!--Section 3 Start-->
  <section class="testimonial-one">
      <div class="testimonial-one-bg-box">
          <div class="testimonial-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url(assets/images/backgrounds/testimonial-one-bg.jpg);"></div>
@@ -283,8 +285,8 @@
              <div class="col-xl-3">
                  <div class="testimonial-one__left">
                      <div class="section-title text-left">
-                         <span class="section-title__tagline">Budaya Sumut</span>
-                         <h2 class="section-title__title">Rekreasi & Hiburan</h2>
+                         <span class="section-title__tagline"><?= $section_3['sub_judul'] ?></span>
+                         <h2 class="section-title__title"><?= $section_3['judul'] ?></h2>
                          <div class="section-title__line"></div>
                      </div>
 
@@ -317,7 +319,7 @@
                                     }
                                 }
                             }'>
-                         <?php foreach ($artikel1  as $r) : ?>
+                         <?php foreach ($artikel_3  as $r) : ?>
                              <div class="item">
                                  <!--Blog One Start-->
                                  <div class="blog-one__single">
@@ -350,22 +352,22 @@
          </div>
      </div>
  </section>
- <!--Testimonial One End-->
+ <!--Section 3 End-->
 
 
 
- <!--Blog One Start-->
+ <!--Section 4 Start-->
  <section class="blog-one">
      <div class="container">
          <div class="section-title text-center">
-             <span class="section-title__tagline">Budaya Sumut</span>
-             <h2 class="section-title__title">Peninggalan Budaya</h2>
+             <span class="section-title__tagline"><?= $section_4['sub_judul'] ?></span>
+             <h2 class="section-title__title"><?= $section_4['judul'] ?></h2>
              <div class="section-title__line"></div>
          </div>
          <div class="row">
-             <?php foreach ($artikel1  as $r) : ?>
+             <?php foreach ($artikel_4  as $r) : ?>
                  <div class="col-xl-3 col-lg-3   wow fadeInUp" data-wow-delay="100ms">
-                     <!--Blog One Start-->
+                     <!--Section 4 Start-->
                      <div class="blog-one__single">
                          <div class="blog-one__img">
                              <img style="height: 230px;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt="">
@@ -392,4 +394,4 @@
          </div>
      </div>
  </section>
- <!--Blog One End-->
+ <!--Section 4 End-->

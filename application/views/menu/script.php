@@ -45,7 +45,7 @@
                 },
                 success: function(data) {
                     alert('Data telah berhasil disimpan');
-                    //location.reload();
+                    location.reload();
                 },
                 error: function(xhr, status, error) {
                     alert('Data gagal disimpan');

@@ -27,30 +27,47 @@
              <div class="col-xl-8 col-lg-7">
                  <div class="contact-page__left">
 
-                     <h4>Dinas Kebudayaan Pariwisata & Ekonomi Kreatif <br>Provinsi Sumatera Utara</h4>
+                     <h4><?= $data['judul'] ?></h4>
                      <br>
                      <div class="contact-page__details">
                          <ul class="list-unstyled contact-page__details-list">
-                             <li>
-                                 <span>Telepon</span>
-                                 <p><a href="tel:061661 5760">061 - 661 5760</a></p>
-                             </li>
-                             <li>
-                                 <span>Email</span>
-                                 <p><a href="mailto:info@cagarbudaya.sumutprov.go.id">info@cagarbudaya.sumutprov.go.id</a></p>
-                             </li>
-                             <li>
-                                 <span>Alamat</span>
+                             <?php if ($data['telepon']) : ?>
+                                 <li>
+                                     <span>Telepon</span>
+                                     <p><a href="tel:<?= $data['telepon'] ?>"><?= $data['telepon'] ?></a></p>
+                                 </li>
+                             <?php endif; ?>
 
-                                 <p>Jalan Rumah Sakit Haji No.10 A Medan Estate - 20371</p>
-                             </li>
+                             <?php if ($data['email']) : ?>
+                                 <li>
+                                     <span>Email</span>
+                                     <p><a href="mailto:<?= $data['email'] ?>"><?= $data['email'] ?></a></p>
+                                 </li>
+                             <?php endif; ?>
+                             <?php if ($data['alamat']) : ?>
+                                 <li>
+                                     <span>Alamat</span>
+
+                                     <p><?= $data['alamat'] ?></p>
+                                 </li>
+                             <?php endif; ?>
                          </ul>
                          <div class="contact-page__social">
-                             <a href="#"><i class="fab fa-twitter"></i></a>
-                             <a href="#"><i class="fab fa-facebook"></i></a>
-                             <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                             <a href="#"><i class="fab fa-instagram"></i></a>
-                             <a href="#"><i class="fab fa-tiktok"></i></a>
+                             <?php if ($data['twitter']) : ?>
+                                 <a href="<?= $data['twitter'] ?>"><i class="fab fa-twitter"></i></a>
+                             <?php endif; ?>
+                             <?php if ($data['facebook']) : ?>
+                                 <a href="<?= $data['facebook'] ?>"><i class="fab fa-facebook"></i></a>
+                             <?php endif; ?>
+                             <?php if ($data['instagram']) : ?>
+                                 <a href="<?= $data['instagram'] ?>"><i class="fab fa-instagram"></i></a>
+                             <?php endif; ?>
+                             <?php if ($data['tiktok']) : ?>
+                                 <a href="<?= $data['tiktok'] ?>"><i class="fab fa-tiktok"></i></a>
+                             <?php endif; ?>
+                             <?php if ($data['youtube']) : ?>
+                                 <a href="<?= $data['youtube'] ?>"><i class="fab fa-youtube"></i></a>
+                             <?php endif; ?>
                          </div>
                      </div>
                      <br>

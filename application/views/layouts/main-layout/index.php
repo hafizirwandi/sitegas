@@ -118,27 +118,39 @@
                             <i data-feather='folder'></i><span class="menu-title text-truncate">Kategori</span>
                         </a>
                     </li>
+
+                    <li class="<?= ($public['menu'] == 'slideshow') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('slideshow') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Slideshow</span>
+                        </a>
+                    </li>
+                    <li class="<?= ($public['menu'] == 'menu') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('menu') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Menu</span>
+                        </a>
+                    </li>
+                    <li class="<?= ($public['menu'] == 'footer') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('footer') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Footer</span>
+                        </a>
+                    </li>
+                    <li class="<?= ($public['menu'] == 'halaman') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('halaman') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Halaman</span>
+                        </a>
+                    </li>
+                    <li class="<?= ($public['menu'] == 'halaman-depan') ? 'active' : '' ?> nav-item">
+                        <a class="d-flex align-items-center" href="<?= site_url('halaman-depan') ?>">
+                            <i data-feather='folder'></i><span class="menu-title text-truncate">Halaman Depan</span>
+                        </a>
+                    </li>
                     <li class="<?= ($public['menu'] == 'pengguna') ? 'active' : '' ?> nav-item">
                         <a class="d-flex align-items-center" href="<?= site_url('pengguna') ?>">
                             <i data-feather='user'></i><span class="menu-title text-truncate">Pengguna</span>
                         </a>
                     </li>
                 <?php endif; ?>
-                <li class="<?= ($public['menu'] == 'slideshow') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('slideshow') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Slideshow</span>
-                    </a>
-                </li>
-                <li class="<?= ($public['menu'] == 'menu') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('menu') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Menu</span>
-                    </a>
-                </li>
-                <li class="<?= ($public['menu'] == 'footer') ? 'active' : '' ?> nav-item">
-                    <a class="d-flex align-items-center" href="<?= site_url('footer') ?>">
-                        <i data-feather='folder'></i><span class="menu-title text-truncate">Footer</span>
-                    </a>
-                </li>
+
                 <li class="<?= ($public['menu'] == 'artikel') ? 'active' : '' ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= site_url('artikel') ?>">
                         <i data-feather='folder'></i><span class="menu-title text-truncate">Artikel</span>
