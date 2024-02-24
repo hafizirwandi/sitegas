@@ -29,8 +29,9 @@
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
-                                     <label class="form-label" for="blog-edit-category">Published Time</label>
-                                     <input type="datetime-local" name="published_at" class="form-control" required />
+                                     <label class="form-label" for="blog-edit-slug">Slug</label>
+                                     <input type="text" id="blog-edit-slug" name="slug" class="form-control" />
+                                     <small class="text-danger">Kosongkan jika tidak ingin di kustom</small>
                                  </div>
                              </div>
                              <div class="col-md-6 col-12">
@@ -45,21 +46,24 @@
                              </div>
                              <div class="col-md-6 col-12">
                                  <div class="mb-2">
-                                     <label class="form-label" for="blog-edit-slug">Slug</label>
-                                     <input type="text" id="blog-edit-slug" name="slug" class="form-control" />
-                                     <small class="text-danger">Kosongkan jika tidak ingin di kustom</small>
+                                     <label class="form-label" for="blog-edit-category">Published Time</label>
+                                     <input type="datetime-local" name="published_at" class="form-control" required />
                                  </div>
+
                              </div>
                              <div class="col-md-6 col-12">
-                                 <div class="mb-2">
-                                     <label class="form-label" for="blog-edit-status">Status</label>
-                                     <select class="form-select" name="status" id="blog-edit-status" required>
-                                         <option value="1">Published</option>
-                                         <option value="2">Pending</option>
-                                         <option value="0">Draft</option>
-                                         <option value="3">Ditolak</option>
-                                     </select>
-                                 </div>
+                                 <?php if ($this->session->userdata('role') == '1') : ?>
+                                     <div class="mb-2">
+                                         <label class="form-label" for="blog-edit-status">Status</label>
+                                         <select class="form-select" name="status" id="blog-edit-status" required>
+
+
+                                             <option value="2">Progress</option>
+                                             <option value="1">Published</option>
+                                             <option value="3">Ditolak</option>
+                                         </select>
+                                     </div>
+                                 <?php endif; ?>
                              </div>
                              <div class="col-12">
                                  <div class="mb-2">

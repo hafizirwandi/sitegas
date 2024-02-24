@@ -73,7 +73,7 @@ function is_sertifikat2($str)
 function  statusTerbit($str)
 {
     if ($str == '1') return "Published";
-    if ($str == '2') return "Pending";
+    if ($str == '2') return "Progress";
     if ($str == '0') return "Draft";
     if ($str == '3') return "Rejected";
 }
@@ -196,6 +196,16 @@ function footer_three()
     return $str;
 }
 
+function singkatkanView($jumlah)
+{
+    if ($jumlah < 1000) {
+        return $jumlah;
+    } elseif ($jumlah < 1000000) {
+        return round($jumlah / 1000, 1) . 'k';
+    } else {
+        return round($jumlah / 1000000, 1) . 'M';
+    }
+}
 define(
     'KELURAHAN',
     array(

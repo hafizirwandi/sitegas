@@ -54,15 +54,20 @@
 
                              </div>
                              <div class="col-md-6 col-12">
-                                 <div class="mb-2">
-                                     <label class="form-label" for="blog-edit-status">Status</label>
-                                     <select class="form-select" name="status" id="blog-edit-status" required>
-                                         <option value="1">Published</option>
-                                         <option value="2">Pending</option>
-                                         <option value="0">Draft</option>
-                                         <option value="3">Ditolak</option>
-                                     </select>
-                                 </div>
+                                 <?php if ($this->session->userdata('role') == '1') : ?>
+                                     <div class="mb-2">
+                                         <label class="form-label" for="blog-edit-status">Status</label>
+                                         <select class="form-select" name="status" id="blog-edit-status" required>
+                                             <option value="1" <?= $data['status'] == '1' ? 'selected' : '' ?>>Published</option>
+                                             <option value="2" <?= $data['status'] == '2' ? 'selected' : '' ?>>Pending</option>
+
+                                             <option value="3" <?= $data['status'] == '3' ? 'selected' : '' ?>>Ditolak</option>
+                                         </select>
+                                     </div>
+                                 <?php endif; ?>
+                                 <?php if ($this->session->userdata('role') == '1') : ?>
+                                     <input type="hidden" name="status" value="<?= $data['status'] ?>">
+                                 <?php endif; ?>
                              </div>
                              <div class="col-12">
                                  <div class="mb-2">

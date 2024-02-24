@@ -46,6 +46,9 @@ class Artikel extends CI_Controller
         if ($this->session->userdata('role') == '2') {
             $str_params['a.id_kk'] = $this->session->userdata('id_kk');
         }
+        if ($this->session->userdata('role') == '1') {
+            $str_params['a.status !='] = '0';
+        }
         //dd($str_params);
 
         //  canController('view artikel');
@@ -82,6 +85,15 @@ class Artikel extends CI_Controller
     public function detail($id)
     {
         $artikel = $this->artikel->find($id);
+        if (!$artikel) {
+            show_error("Data tidak ditemukan");
+        }
+
+        if ($this->session->userdata('role') == '2' && $artikel['id_kk'] != $this->session->userdata('id_kk')) {
+            show_error('ID Artikel ini buka milik anda!');
+        }
+
+
         $data['data'] = $artikel;
         $data['kategori1'] = $this->kategori->findKategoriArtikelAllByArtikelID($artikel['id_artikel']);
         $data['comment'] = $this->comment->findAllWhere(['a.id_artikel' => $artikel['id_artikel']]);
@@ -153,6 +165,18 @@ class Artikel extends CI_Controller
     {
         $id = $this->input->post('id');
         $this->artikel->delete($id);
+        $alert = alert('primary', 'Data berhasil dihapus.');
+        $this->session->set_flashdata('message', $alert);
+        redirect($this->agent->referrer());
+    }
+    public function send_to_admin()
+    {
+        $id = $this->input->post('id');
+        $data = [
+            'id_artikel' => $id,
+            'status' => '2',
+        ];
+        $this->artikel->save($data);
         $alert = alert('primary', 'Data berhasil dihapus.');
         $this->session->set_flashdata('message', $alert);
         redirect($this->agent->referrer());

@@ -29,7 +29,9 @@
                         <option value="99">Semua Status</option>
                         <option value="1" <?= $this->input->get('status') == '1' ? 'selected' : '' ?>>Published</option>
                         <option value="2" <?= $this->input->get('status') == '2' ? 'selected' : '' ?>>Progress</option>
-                        <option value="0" <?= $this->input->get('status') == '0' ? 'selected' : '' ?>>Draft</option>
+                        <?php if ($this->session->userdata('role') == '2') : ?>
+                            <option value="0" <?= $this->input->get('status') == '0' ? 'selected' : '' ?>>Draft</option>
+                        <?php endif; ?>
                         <option value="3" <?= $this->input->get('status') == '3' ? 'selected' : '' ?>>Ditolak</option>
                     </select>
                 </div>
@@ -64,7 +66,7 @@
                         <th>Status</th>
                         <th>Feedback</th>
                         <th>View</th>
-                        <th style="width:100px ;">Aksi</th>
+                        <th style="width:130px ;">Aksi</th>
 
                     </tr>
 
@@ -76,25 +78,28 @@
                             <td><?php if ($r['gambar_utama']) : ?> <img style="width:200px ;" src="<?= base_url('uploads/artikel/') . $r['gambar_utama'] ?>" alt=""> <?php endif; ?></td>
                             <td><?= $r['judul'] ?></td>
                             <td><?php foreach ($r['kategori'] as $j) : ?>
-                                    <span class="badge badge-light-primary"><?= $j['nama_kategori'] ?></span><br>
+                                    <span class="badge" style=" background-color: <?= makeColorFromString($j['nama_kategori']) ?>;"><?= $j['nama_kategori'] ?></span><br>
                                 <?php endforeach; ?>
                             </td>
                             <td><?= $r['published_at'] ?></td>
                             <td><?= $r['nama_kab_kota'] ?></td>
-                            <td><?= $r['nama_pengguna'] ?></td>
-                            <td><?= statusTerbit($r['status']) ?></td>
+                            <td><?= $r['nama_pengguna'] ?><br> <?= $r['created_at'] ?></td>
+                            <td><span class="badge " style="background-color: <?= makeColorFromString(statusTerbit($r['status'])) ?>;"><?= statusTerbit($r['status']) ?></span></td>
                             <td><?= $r['jlh_comment'] ?></td>
-                            <td><?= $r['view'] ?></td>
+                            <td><?= singkatkanView($r['view']) ?></td>
 
 
                             <td>
+
                                 <a href="<?= site_url('artikel/detail/') . $r['id_artikel'] ?>" class="btn btn-sm btn-success btn-icon " title="Lihat">
                                     <i data-feather='eye'></i>
                                 </a>
-                                <?php if ($this->session->userdata('id_pengguna') == $r['created_by'] || $this->session->userdata('role') == '1') : ?>
+                                <?php if ($this->session->userdata('role') == '1') : ?>
+
                                     <a href="<?= site_url('artikel/edit/') . $r['id_artikel'] ?>" class="btn btn-sm btn-warning btn-icon" title="Edit">
                                         <i data-feather='edit'></i>
                                     </a>
+
                                     <form class="d-inline" method="post" action="<?= site_url("artikel/delete") ?>">
                                         <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                                         <input type="hidden" name="id" value="<?= $r['id_artikel'] ?>">
@@ -102,7 +107,37 @@
                                             <i data-feather='trash'></i>
                                         </button>
                                     </form>
+
                                 <?php endif; ?>
+                                <?php if ($this->session->userdata('role') == '2') : ?>
+
+                                    <?php if ($r['status'] == '0' || $r['status'] == '2') : ?>
+                                        <a href="<?= site_url('artikel/edit/') . $r['id_artikel'] ?>" class="btn btn-sm btn-warning btn-icon" title="Edit">
+                                            <i data-feather='edit'></i>
+                                        </a>
+
+
+                                        <form class="d-inline" method="post" action="<?= site_url("artikel/delete") ?>">
+                                            <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
+                                            <input type="hidden" name="id" value="<?= $r['id_artikel'] ?>">
+                                            <button onclick="return confirm('Are you sure?')" class="btn btn-sm btn-secondary btn-icon" title="Hapus">
+                                                <i data-feather='trash'></i>
+                                            </button>
+                                        </form>
+
+                                    <?php endif; ?>
+                                    <?php if ($r['status'] == '0') : ?>
+                                        <form class="d-inline" method="post" action="<?= site_url("artikel/send-to-admin") ?>">
+                                            <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
+                                            <input type="hidden" name="id" value="<?= $r['id_artikel'] ?>">
+                                            <button onclick="return confirm('Are you sure?')" class="btn btn-sm btn-primary btn-icon" title="Kirim">
+                                                <i data-feather='send'></i>
+                                            </button>
+                                        </form>
+                                    <?php endif; ?>
+
+                                <?php endif; ?>
+
 
                             </td>
 
